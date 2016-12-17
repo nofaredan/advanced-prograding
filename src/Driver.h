@@ -38,7 +38,7 @@ public:
     void setCab(Cab cab);
     void setCurrTrip(Trip* tripDriver);
     void move (void (template  <class T>::*addto)(void));
-    int getId();
+    int getId(); 
     Point getCurrentPlace();
 };
 
