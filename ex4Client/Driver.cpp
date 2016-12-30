@@ -72,7 +72,6 @@ void Driver::move(Point newPlace) {
 int Driver::getId() {
     return id;
 }
-
 /**
  *
  * @return the driver's current place

@@ -8,8 +8,38 @@
 #include "Point.h"
 #include "Passenger.h"
 #include <vector>
+#include <fstream>
+#include <sstream>
+#include <boost/archive/text_oarchive.hpp>
+#include <boost/archive/text_iarchive.hpp>
+#include <boost/tokenizer.hpp>
+#include <boost/algorithm/string/predicate.hpp>
+#include <boost/lexical_cast.hpp>
+#include <boost/assign/list_of.hpp>
+#include <boost/algorithm/string.hpp>
+#include <boost/iostreams/device/back_inserter.hpp>
+#include <boost/iostreams/stream.hpp>
+#include <boost/archive/binary_oarchive.hpp>
+#include <boost/archive/binary_iarchive.hpp>
+#include <boost/serialization/vector.hpp>
+using namespace boost::archive;
+
 using namespace std;
 class Trip {
+
+    friend class boost::serialization::access;
+    template<class Archive>
+    void serialize(Archive &ar, const unsigned int version){
+        // attache to boost -
+
+        ar & rideId;
+        ar & meterPassed;
+        ar & currentPlace;
+        ar & end;
+        ar & numPassengers;
+        ar & tariff;
+        ar & arrPassengers;
+    }
 private:
     int rideId;
     int meterPassed;

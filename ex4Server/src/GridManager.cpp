@@ -1,4 +1,5 @@
 #include "GridManager.h"
+using namespace std;
 
 /**
  * The constructor.

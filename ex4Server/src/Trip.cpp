@@ -3,6 +3,7 @@
 //
 
 #include "Trip.h"
+using namespace std;
 
 /**
 * C-TOR Trip

@@ -8,7 +8,6 @@
 #include <vector>
 
 using std::queue;
-using namespace std;
 
 /**
  * Class manager.
@@ -29,7 +28,7 @@ public:
 
     virtual void printRode(Node *node) =0;
 
-    virtual vector<Node *> addNeighbors(Node *node) =0;
+    virtual std::vector<Node *> addNeighbors(Node *node) =0;
 
     virtual void calculateBestRoute(Point startPoint, Point endPoint);
 };

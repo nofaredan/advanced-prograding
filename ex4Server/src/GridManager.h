@@ -34,7 +34,7 @@ protected:
 
     void printRode(Node *node);
 
-    vector<Node *> addNeighbors(Node *node);
+    std::vector<Node *> addNeighbors(Node *node);
 
     virtual GridNode* setNodeType(int x, int y);
 

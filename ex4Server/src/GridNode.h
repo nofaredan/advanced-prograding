@@ -20,7 +20,7 @@ public:
 
     bool operator==(const Node &node);
 
-    ostream &print(ostream &os);
+    std::ostream &print(std::ostream &os);
 };
 
 #endif //EX1_GRIDNODE_H

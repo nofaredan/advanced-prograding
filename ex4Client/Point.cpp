@@ -20,4 +20,3 @@ bool Point::operator==(Point point) {
     return (x==point.getX() && y  == point.getY());
 }
 
-

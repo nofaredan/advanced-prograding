@@ -28,6 +28,7 @@ Cab::Cab(int id, char manufactor, char cabColor) {
     numKm = 0;
 }
 
+
 /**
  *
  * @return cab id.

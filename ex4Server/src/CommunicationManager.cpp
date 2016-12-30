@@ -17,10 +17,6 @@ int CommunicationManager::createSocket() {
     sin.sin_addr.s_addr = INADDR_ANY;
     sin.sin_port = htons(server_port);
 
-    return 0;
-}
-
-void recieveFromClient(){
     if (bind(sock, (struct sockaddr *) &sin, sizeof(sin)) < 0) {
         perror("error binding to socket");
     }
@@ -35,7 +31,7 @@ void recieveFromClient(){
         perror("error reading from socket");
     }
 
-    cout << "The client sent: " << buffer << endl;
+    std::cout << "The client sent: " << buffer << std::endl;
 
     int sent_bytes = sendto(sock, buffer, bytes, 0, (struct sockaddr *) &from, sizeof(from));
     if (sent_bytes < 0) {
@@ -43,5 +39,5 @@ void recieveFromClient(){
     }
 
     close(sock);
-
+    return 0;
 }

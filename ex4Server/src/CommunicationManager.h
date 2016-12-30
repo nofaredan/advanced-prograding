@@ -12,10 +12,10 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 #include <string.h>
-using namespace std;
 
 
 class CommunicationManager {
+public:
     int createSocket();
 };
 

@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-using namespace std;
+//using namespace std;
 
 class Node {
 
@@ -24,9 +24,9 @@ public:
 
     Node *getPreviousNode();
 
-    friend ostream &operator<<(ostream &os, Node &node);
+    friend std::ostream &operator<<(std::ostream &os, Node &node);
 
-    virtual ostream &print(ostream &os) = 0;
+    virtual std::ostream &print(std::ostream &os) = 0;
 };
 
 #endif //EX1_NODE_H

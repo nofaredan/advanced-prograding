@@ -1,5 +1,5 @@
 #include "GridNode.h"
-
+using namespace std;
 /**
  *
  * @return the point of the node.
