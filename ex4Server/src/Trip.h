@@ -38,6 +38,7 @@ class Trip {
         ar & numPassengers;
         ar & tariff;
         ar & arrPassengers;
+        ar & nTimeOfStart;
     }
 private:
     int rideId;
@@ -45,12 +46,17 @@ private:
     Point currentPlace;
     Point end;
     int numPassengers;
+    int nTimeOfStart;
+public:
+    int getNTimeOfStart() const;
+
+private:
     double tariff;
     std::vector<Passenger*> arrPassengers;
 
 public:
     Trip(){};
-    Trip(int id, Point startPoint, Point endPoint, int passengers,double tariffRide);
+    Trip(int id, Point startPoint, Point endPoint, int passengers,double tariffRide, int timeOfStart);
     void move();
     void addPassenger();
     int getMeterPassed();

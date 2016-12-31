@@ -123,6 +123,19 @@ ex4Server/fast:
 	$(MAKE) -f CMakeFiles/ex4Server.dir/build.make CMakeFiles/ex4Server.dir/build
 .PHONY : ex4Server/fast
 
+#=============================================================================
+# Target rules for targets named core
+
+# Build rule for target.
+core: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 core
+.PHONY : core
+
+# fast build rule for target.
+core/fast:
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/build
+.PHONY : core/fast
+
 src/Cab.o: src/Cab.cpp.o
 
 .PHONY : src/Cab.o
@@ -672,6 +685,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... ex4Server"
+	@echo "... core"
 	@echo "... src/Cab.o"
 	@echo "... src/Cab.i"
 	@echo "... src/Cab.s"

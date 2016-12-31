@@ -14,6 +14,10 @@
  * @param mapDriver = driver's map
  */
 Driver::Driver(int driverId, int driverAge, char driverStatus, int experience, int taxiId) {
+    avgSatisfaction = 0;
+    satisfaction = 0;
+    customers = 0;
+
     id = driverId;
     age = driverAge;
     driverStatus = status;
@@ -21,6 +25,7 @@ Driver::Driver(int driverId, int driverAge, char driverStatus, int experience, i
     cabId = taxiId;
     currentPlace = Point(0, 0);
     currTrip = NULL;
+    cab = NULL;
 }
 
 /**

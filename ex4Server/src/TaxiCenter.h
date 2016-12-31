@@ -29,9 +29,9 @@ public:
     void startDriving();
     Point getDriverPlace(int id);
     Point getDriverPlaceInQueue(queue<Driver*> driverQueue, int id);
+    bool connectTripToDriver(int nClockTime);
 
-
-        private:
+private:
     void deleteQueueDrivers(queue<Driver*> queueDrivers);
     void deletePendingTrips(vector<Trip *> trips);
     void copyQueue(queue<Driver*>* queueDrivers, queue<Driver*>* anotherQueueDrivers);

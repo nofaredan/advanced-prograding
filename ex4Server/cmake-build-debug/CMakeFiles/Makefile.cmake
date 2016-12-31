@@ -20,6 +20,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/Applications/CLion.app/Contents/bin/cmake/share/cmake-3.6/Modules/Compiler/AppleClang-CXX.cmake"
   "/Applications/CLion.app/Contents/bin/cmake/share/cmake-3.6/Modules/Compiler/Clang.cmake"
   "/Applications/CLion.app/Contents/bin/cmake/share/cmake-3.6/Modules/Compiler/GNU.cmake"
+  "/Applications/CLion.app/Contents/bin/cmake/share/cmake-3.6/Modules/FindBoost.cmake"
   "/Applications/CLion.app/Contents/bin/cmake/share/cmake-3.6/Modules/Platform/Darwin-AppleClang-C.cmake"
   "/Applications/CLion.app/Contents/bin/cmake/share/cmake-3.6/Modules/Platform/Darwin-AppleClang-CXX.cmake"
   "/Applications/CLion.app/Contents/bin/cmake/share/cmake-3.6/Modules/Platform/Darwin-Clang-C.cmake"
@@ -49,4 +50,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/ex4Server.dir/DependInfo.cmake"
+  "CMakeFiles/core.dir/DependInfo.cmake"
   )

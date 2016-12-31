@@ -13,13 +13,14 @@ using namespace std;
 * @param passengers - passengers details
 * @param tariffRide - tariff
 **/
-Trip::Trip(int id, Point startPoint, Point endPoint, int passengers, double tariffRide) {
+Trip::Trip(int id, Point startPoint, Point endPoint, int passengers, double tariffRide, int timeOfStart) {
     rideId = id;
     currentPlace = startPoint;
     end = endPoint;
     numPassengers = passengers;
     tariff = tariffRide;
     meterPassed = 0;
+    nTimeOfStart = timeOfStart;
 }
 
 void Trip:: move(){
@@ -96,4 +97,8 @@ double Trip::getTariff() {
 */
 void Trip::setCurrentPlace(Point place) {
     currentPlace = place;
+}
+
+int Trip::getNTimeOfStart() const {
+    return nTimeOfStart;
 }

@@ -22,6 +22,7 @@ Driver::Driver(int driverId, int driverAge, char driverStatus, int experience, i
     map = mapDriver;
     currentPlace = Point(0, 0);
     currTrip = NULL;
+    cab = NULL;
 }
 
 /**
@@ -102,4 +103,8 @@ Driver::~Driver() {
 
 bool Driver::getHasTrip() {
     return (currTrip != NULL);
+}
+
+void Driver::setMap(Map *map) {
+    Driver::map = map;
 }

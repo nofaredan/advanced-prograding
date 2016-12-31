@@ -584,6 +584,8 @@ ex4Server: CMakeFiles/ex4Server.dir/src/CommunicationManager.cpp.o
 ex4Server: CMakeFiles/ex4Server.dir/src/Socket.cpp.o
 ex4Server: CMakeFiles/ex4Server.dir/src/Udp.cpp.o
 ex4Server: CMakeFiles/ex4Server.dir/build.make
+ex4Server: /usr/local/lib/libboost_serialization-mt.dylib
+ex4Server: /usr/local/lib/libboost_system-mt.dylib
 ex4Server: CMakeFiles/ex4Server.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_21) "Linking CXX executable ex4Server"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ex4Server.dir/link.txt --verbose=$(VERBOSE)

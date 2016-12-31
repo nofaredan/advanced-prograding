@@ -10,6 +10,7 @@
 
 class Udp: public Socket {
 public:
+    Udp(){};
     /***********************************************************************
     * function name: Udp												   *
     * The Input: Boolean, true - if server, false if client and port number*

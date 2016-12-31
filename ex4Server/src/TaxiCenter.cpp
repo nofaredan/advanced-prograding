@@ -12,8 +12,8 @@ TaxiCenter::TaxiCenter() {
 * trip and drivers place
 */
 void TaxiCenter::answerCall(Trip *trip) {
-    queue<Driver *> queueDrivers;
-    bool isMatchToDriver = false;
+    //queue<Driver *> queueDrivers;
+    /*bool isMatchToDriver = false;
     while (drivers.size() > 0) {
         if (drivers.front()->getCurrentPlace() == trip->getCurrentPlace()
             && !(drivers.front()->getHasTrip())) {
@@ -26,9 +26,9 @@ void TaxiCenter::answerCall(Trip *trip) {
         drivers.pop();
     }
     copyQueue(&queueDrivers, &drivers);
-    if (!isMatchToDriver) {
+    if (!isMatchToDriver) {*/
         pendingTrip.push_back(trip);
-    }
+   // }
 }
 
 void TaxiCenter::copyQueue(queue<Driver*>* queueDrivers, queue<Driver*>* anotherQueueDrivers){
@@ -60,9 +60,10 @@ void TaxiCenter::addDriver(Driver *driver) {
     vector<Cab*> cabs;
     int i = 0;
 
+    // add cab to driver
     while (i < availableCabs.size()) {
-        if (driver->getCabId() == availableCabs[i]->getCabId() &&
-            driver->getCab()!=NULL) {
+        if (driver->getCabId() == availableCabs[i]->getCabId() /*&&
+            driver->getCab()!=NULL*/) {
             driver->setCab(availableCabs[i]);
         }else{
             cabs.push_back(availableCabs[i]);
@@ -72,6 +73,7 @@ void TaxiCenter::addDriver(Driver *driver) {
     drivers.push(driver);
     availableCabs = cabs;
 
+    /*
     vector<Trip *> vectorTrips;
     while(pendingTrip.size()>0 && drivers.size()>0){
         if (driver->getCurrentPlace() == pendingTrip.front()->getCurrentPlace()
@@ -85,7 +87,7 @@ void TaxiCenter::addDriver(Driver *driver) {
         }
         pendingTrip.pop_back();
     }
-    pendingTrip = vectorTrips;
+    pendingTrip = vectorTrips;*/
 
 }
 /*
@@ -139,12 +141,12 @@ Point TaxiCenter::getDriverPlace(int id) {
 Point TaxiCenter::getDriverPlaceInQueue(queue<Driver *> driverQueue, int id) {
 // look for the driver
 while (driverQueue.size() > 0) {
-if (driverQueue.front()->getId() == id) {
-return driverQueue.front()->getCurrentPlace();
+    if (driverQueue.front()->getId() == id) {
+    return driverQueue.front()->getCurrentPlace();
+    }
+    driverQueue.pop();
 }
-driverQueue.pop();
-}
-return Point(-1, -1);
+    return Point(-1, -1);
 }
 
 /*
@@ -182,4 +184,34 @@ void TaxiCenter::deletePendingTrips(vector<Trip *> trips) {
     for (int i = 0; i < trips.size(); i++) {
         delete trips[i];
     }
+}
+
+bool TaxiCenter::connectTripToDriver(int nClockTime) {
+    // go over each trip, and attach to driver
+    // the suitable trip -
+    vector<Trip *> vectorTrips;
+    queue<Driver *> queueDrivers;
+    bool isMatchToDriver = false;
+
+    while (drivers.size() > 0 && pendingTrip.size() > 0) {
+        // if driver has no trip,
+        // same place of trip, and it's trip time by clock
+        if (drivers.front()->getCurrentPlace() == pendingTrip.front()->getCurrentPlace()
+            && !(drivers.front()->getHasTrip()) && pendingTrip.front()->getNTimeOfStart() == nClockTime) {
+            drivers.front()->setCurrTrip(pendingTrip.front());
+            busyDrivers.push(drivers.front());
+            drivers.pop();
+            isMatchToDriver = true;
+        }else {
+            vectorTrips.push_back(pendingTrip.front());
+            queueDrivers.push(drivers.front());
+        }
+
+        pendingTrip.pop_back();
+
+    }
+    copyQueue(&queueDrivers, &drivers);
+    pendingTrip = vectorTrips;
+
+    return isMatchToDriver;
 }

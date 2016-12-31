@@ -63,6 +63,8 @@ private:
     //Statistics statistics[];
     Map* map;
     Point currentPlace;
+public:
+    void setMap(Map *map);
 
 public:
     Driver(){};

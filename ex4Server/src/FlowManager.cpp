@@ -12,19 +12,22 @@ FlowManager::FlowManager() {
  * Get an input and add the driver to taxi center.
  */
 void FlowManager::addDriver() {
-
     int numDrivers;
     cin >> numDrivers;
     for(int i=0; i<numDrivers; i++){
 
-    }
+        // create new udp server -
+        udp = Udp(1, 5555);
+        udp.initialize();
 
- /*   int id, age, experience, cabId;
-    char status, buffer;
-    // get an input from the user:
-    cin >> id >> buffer >> age >> buffer >> status >> buffer >> experience >> buffer >> cabId;
-    // add a driver
-    taxiCenter->addDriver(new Driver(id, age, status, experience, cabId, map));*/
+        Driver *driver;
+        getSerializedDriver(&driver);
+
+        driver->setMap(map);
+        taxiCenter->addDriver(driver);
+
+        sendSerializeTaxi(driver->getCab());
+    }
 }
 
 /**
@@ -44,6 +47,31 @@ void FlowManager::addTaxi() {
     }
 }
 
+void FlowManager::sendSerializeTaxi(Cab* cab){
+    // serialize object-
+    std::string serial_str;
+    boost::iostreams::back_insert_device<std::string> inserter(serial_str);
+    boost::iostreams::stream<boost::iostreams::back_insert_device<std::string> > s(inserter);
+    boost::archive::binary_oarchive oa(s);
+    oa << cab;
+    s.flush();
+
+    udp.sendData(serial_str);
+}
+
+void FlowManager::getSerializedDriver(Driver** driver) {
+    char buffer[4000];
+    char* end = buffer + 3999;
+    udp.reciveData(buffer, sizeof(buffer));
+
+    boost::iostreams::basic_array_source<char> device(buffer, end);
+    boost::iostreams::stream<boost::iostreams::basic_array_source<char> > s2(device);
+    boost::archive::binary_iarchive ia(s2);
+
+    ia >> *driver;
+}
+
+
 /**
  *
  * @return the taxi center
@@ -56,14 +84,14 @@ TaxiCenter *FlowManager::getTaxiCenter() {
  * add a trip
  */
 void FlowManager::addTrip() {
-    int id, startX, startY, endX, endY, numPassengers;
+    int id, startX, startY, endX, endY, numPassengers, timeOfStart;
     double tariff;
     char buffer;
     // get an input from the user:
     cin >> id >> buffer >> startX >> buffer >> startY >> buffer >>
-        endX >> buffer >> endY >> buffer >> numPassengers >> buffer >> tariff;
+        endX >> buffer >> endY >> buffer >> numPassengers >> buffer >> tariff >> buffer >> timeOfStart;
     // create a new trip
-    Trip *trip = new Trip(id, Point(startX, startY), Point(endX, endY), numPassengers, tariff);
+    Trip *trip = new Trip(id, Point(startX, startY), Point(endX, endY), numPassengers, tariff, timeOfStart);
     // send the trip to taxi center
     taxiCenter->answerCall(trip);
 }
@@ -126,5 +154,17 @@ FlowManager::~FlowManager() {
     }
     if(taxiCenter != NULL) {
         delete taxiCenter;
+    }
+}
+
+void FlowManager::moveOneStep() {
+    // update the clock by one
+    nWorldClock++;
+    bool bTripConnected = taxiCenter->connectTripToDriver(nWorldClock);
+
+    // if there's a new trip, sent to client the trip
+    if (bTripConnected)
+    {
+
     }
 }
