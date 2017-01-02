@@ -111,3 +111,11 @@ int Udp::reciveData(char* buffer, int size) {
     //return correct if there were no error
     return bytes;
 }
+
+int Udp::getNID() const {
+    return nID;
+}
+
+void Udp::setNID(int nID) {
+    Udp::nID = nID;
+}

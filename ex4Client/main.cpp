@@ -6,10 +6,25 @@ using namespace std;
 using namespace boost::archive;
 std::stringstream ss;
 
+
 // create a udp connection -
 Udp udp(0, 5555);
 
-void getSerializedCab(Cab** cab) {
+
+template <class Object>
+void deSerializedObject(Object** object) {
+    char buffer[4000];
+    char *end = buffer + 3999;
+    udp.reciveData(buffer, sizeof(buffer));
+
+    boost::iostreams::basic_array_source<char> device(buffer, end);
+    boost::iostreams::stream<boost::iostreams::basic_array_source<char> > s2(device);
+    boost::archive::binary_iarchive ia(s2);
+
+    ia >> *object;
+}
+
+void deSerializeTask(int* nTask) {
     char buffer[4000];
     char* end = buffer + 3999;
     udp.reciveData(buffer, sizeof(buffer));
@@ -18,28 +33,17 @@ void getSerializedCab(Cab** cab) {
     boost::iostreams::stream<boost::iostreams::basic_array_source<char> > s2(device);
     boost::archive::binary_iarchive ia(s2);
 
-    ia >> *cab;
+    ia >> *nTask;
 }
 
-void getSerializedTrip(Trip** cab) {
-    char buffer[4000];
-    char* end = buffer + 3999;
-    udp.reciveData(buffer, sizeof(buffer));
-
-    boost::iostreams::basic_array_source<char> device(buffer, end);
-    boost::iostreams::stream<boost::iostreams::basic_array_source<char> > s2(device);
-    boost::archive::binary_iarchive ia(s2);
-
-    ia >> *trip;
-}
-
-void sendSerializeDriver(Driver* driver){
+template <class Object>
+void sendSerializeObject(Object* obj){
     // serialize object-
     std::string serial_str;
     boost::iostreams::back_insert_device<std::string> inserter(serial_str);
     boost::iostreams::stream<boost::iostreams::back_insert_device<std::string> > s(inserter);
     boost::archive::binary_oarchive oa(s);
-    oa << driver;
+    oa << obj;
     s.flush();
 
     udp.sendData(serial_str);
@@ -57,16 +61,38 @@ int main() {
     // create new driver-
     Driver *driver = new Driver(id, age, status, experience, cabId);
 
-    sendSerializeDriver(driver);
+    sendSerializeObject(driver);
 
     // get taxi from server-
     Cab* cab;
-    getSerializedCab(&cab);
+    deSerializedObject(&cab);
 
     driver->setCab(cab);
 
-    Trip* trip;
-    getSerializedTrip(&trip);
+    Trip* trip = NULL;
+
+    // get number of input
+    int nTask;
+
+    do{
+        deSerializeTask(&nTask);
+
+        // new trip task -
+        if (nTask == 1){
+            //*deSerializedObject() >> *trip;
+            deSerializedObject(&trip);
+        }
+        else if (nTask == 2) // move place
+        {
+            // get point
+            Point* newPoint;
+            //*deSerializedObject() >> *newPoint;
+            deSerializedObject(&newPoint);
+            driver->move(*newPoint);
+        }
+
+    }while (nTask != 7);
+
 
     return 0;
 }

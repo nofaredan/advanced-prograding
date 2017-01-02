@@ -20,7 +20,7 @@ Driver::Driver(int driverId, int driverAge, char driverStatus, int experience, i
 
     id = driverId;
     age = driverAge;
-    driverStatus = status;
+    status = driverStatus;
     yearsExperience = experience;
     cabId = taxiId;
     currentPlace = Point(0, 0);

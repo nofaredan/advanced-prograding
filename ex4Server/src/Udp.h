@@ -9,6 +9,13 @@
 #include "Socket.h"
 
 class Udp: public Socket {
+private:
+    int nID;
+public:
+    int getNID() const;
+
+    void setNID(int nID);
+
 public:
     Udp(){};
     /***********************************************************************

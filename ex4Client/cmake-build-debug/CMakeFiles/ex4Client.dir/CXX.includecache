@@ -221,50 +221,10 @@ Socket.h
 /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Client/main.cpp
 iostream
 -
-sys/socket.h
--
-stdio.h
--
-netinet/in.h
--
-arpa/inet.h
--
-unistd.h
--
-string.h
--
 Driver.h
 /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Client/Driver.h
 Udp.h
 /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Client/Udp.h
-iostream
--
-fstream
--
-sstream
--
-boost/archive/text_oarchive.hpp
--
-boost/archive/text_iarchive.hpp
--
-boost/tokenizer.hpp
--
-boost/algorithm/string/predicate.hpp
--
-boost/lexical_cast.hpp
--
-boost/assign/list_of.hpp
--
-boost/algorithm/string.hpp
--
-boost/iostreams/device/back_inserter.hpp
--
-boost/iostreams/stream.hpp
--
-boost/archive/binary_oarchive.hpp
--
-boost/archive/binary_iarchive.hpp
--
 
 /usr/local/include/boost/algorithm/string.hpp
 boost/algorithm/string/std_containers_traits.hpp

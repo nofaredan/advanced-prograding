@@ -16,7 +16,7 @@
 Driver::Driver(int driverId, int driverAge, char driverStatus, int experience, int taxiId, Map *mapDriver) {
     id = driverId;
     age = driverAge;
-    driverStatus = status;
+    status = driverStatus;
     yearsExperience = experience;
     cabId = taxiId;
     map = mapDriver;
@@ -61,8 +61,12 @@ void Driver::setCurrTrip(Trip *tripDriver) {
  * move the driver.
  */
 void Driver::move() {
+
+    std::cout << "move" << std::endl;
+
+    // old code
     // calculate route
-    map->calculateBestRoute(currTrip->getCurrentPlace(), currTrip->getEnd());
+    /*map->calculateBestRoute(currTrip->getCurrentPlace(), currTrip->getEnd());
 
     // get the driver to the end point
     currTrip->setCurrentPlace(currTrip->getEnd());
@@ -70,7 +74,7 @@ void Driver::move() {
 
     //delete trip
     delete currTrip;
-    currTrip = NULL;
+    currTrip = NULL;*/
 }
 
 /**

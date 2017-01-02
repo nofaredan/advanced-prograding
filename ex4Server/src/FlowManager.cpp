@@ -17,16 +17,19 @@ void FlowManager::addDriver() {
     for(int i=0; i<numDrivers; i++){
 
         // create new udp server -
-        udp = Udp(1, 5555);
-        udp.initialize();
+        udp = new Udp(1, 5555);
+        udp->initialize();
 
         Driver *driver;
-        getSerializedDriver(&driver);
+        getSerializObject(&driver);
+
+        // set socket udp id
+        udp->setNID(driver->getId());
 
         driver->setMap(map);
         taxiCenter->addDriver(driver);
 
-        sendSerializeTaxi(driver->getCab());
+        sendSerializeObject(driver->getCab());
     }
 }
 
@@ -47,28 +50,18 @@ void FlowManager::addTaxi() {
     }
 }
 
-void FlowManager::sendSerializeTaxi(Cab* cab){
-    // serialize object-
-    std::string serial_str;
-    boost::iostreams::back_insert_device<std::string> inserter(serial_str);
-    boost::iostreams::stream<boost::iostreams::back_insert_device<std::string> > s(inserter);
-    boost::archive::binary_oarchive oa(s);
-    oa << cab;
-    s.flush();
 
-    udp.sendData(serial_str);
-}
-
-void FlowManager::getSerializedDriver(Driver** driver) {
+template <class Object>
+void FlowManager::getSerializObject(Object **object) {
     char buffer[4000];
     char* end = buffer + 3999;
-    udp.reciveData(buffer, sizeof(buffer));
+    udp->reciveData(buffer, sizeof(buffer));
 
     boost::iostreams::basic_array_source<char> device(buffer, end);
     boost::iostreams::stream<boost::iostreams::basic_array_source<char> > s2(device);
     boost::archive::binary_iarchive ia(s2);
 
-    ia >> *driver;
+    ia >> *object;
 }
 
 
@@ -157,14 +150,50 @@ FlowManager::~FlowManager() {
     }
 }
 
+
+template <class Object>
+void FlowManager::sendSerializeObject(Object* obj){
+    // serialize object-
+    std::string serial_str;
+    boost::iostreams::back_insert_device<std::string> inserter(serial_str);
+    boost::iostreams::stream<boost::iostreams::back_insert_device<std::string> > s(inserter);
+    boost::archive::binary_oarchive oa(s);
+    oa << obj;
+    s.flush();
+
+    udp->sendData(serial_str);
+}
+
+void FlowManager::sendSerializeInt(int nTask){
+    // serialize object-
+    std::string serial_str;
+    boost::iostreams::back_insert_device<std::string> inserter(serial_str);
+    boost::iostreams::stream<boost::iostreams::back_insert_device<std::string> > s(inserter);
+    boost::archive::binary_oarchive oa(s);
+    oa << nTask;
+    s.flush();
+
+    udp->sendData(serial_str);
+}
+
 void FlowManager::moveOneStep() {
     // update the clock by one
     nWorldClock++;
-    bool bTripConnected = taxiCenter->connectTripToDriver(nWorldClock);
+    Trip* tMatchingTrip = taxiCenter->connectTripToDriver(nWorldClock);
 
     // if there's a new trip, sent to client the trip
-    if (bTripConnected)
+    if (tMatchingTrip != NULL)
     {
+        // sending new trip task to client
+        sendSerializeInt(1);
 
+        // send to client the trip
+        sendSerializeObject(tMatchingTrip);
     }
+
+    // sending new point task to client
+    sendSerializeInt(2);
+
+    // move driver
+    taxiCenter->getDriverById(udp->getNID())->move();
 }

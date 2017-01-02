@@ -15,7 +15,7 @@ private:
     Map* map;
     GridNode*** arrGridNode;
     int nWorldClock = 0;
-    Udp udp;
+    Udp* udp;
 
 public:
     FlowManager();
@@ -28,8 +28,11 @@ public:
     void startDriving();
     void getDriverPlace();
     void moveOneStep();
-    void sendSerializeTaxi(Cab* cab);
-    void getSerializedDriver(Driver** driver);
+    template <class Object>
+    void getSerializObject(Object **object);
+    void sendSerializeInt(int nTask);
+    template <class Object>
+    void sendSerializeObject(Object* obj);
     };
 
 #endif //EX2_FLOWMANAGER_H
