@@ -8,6 +8,10 @@ Point GridNode::getPoint() const {
     return point;
 }
 
+std::string GridNode::getName(){
+    return "GridNode";
+}
+
 /**
  * operator to compare two grid nodes.
  * @param node = a node to compare with

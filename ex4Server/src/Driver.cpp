@@ -60,21 +60,33 @@ void Driver::setCurrTrip(Trip *tripDriver) {
 /**
  * move the driver.
  */
-void Driver::move() {
-
-    std::cout << "move" << std::endl;
-
-    // old code
+void Driver::calculateBestRoute() {
     // calculate route
-    /*map->calculateBestRoute(currTrip->getCurrentPlace(), currTrip->getEnd());
+    map->calculateBestRoute(currTrip->getCurrentPlace(), currTrip->getEnd());
+}
+
+/**
+ * move the driver.
+ * @return if trip over
+ */
+bool Driver::move() {
+    // calculate route
+    Point* currentPointNode = map->getPointOnRoad();
 
     // get the driver to the end point
-    currTrip->setCurrentPlace(currTrip->getEnd());
+    currTrip->setCurrentPlace(Point(currentPointNode->getX(), currentPointNode->getY()));
     currentPlace = currTrip->getCurrentPlace();
 
-    //delete trip
-    delete currTrip;
-    currTrip = NULL;*/
+    // delete
+    delete currentPointNode;
+    //delete trip if the trip is over-
+    if (currTrip->isTripOver()){
+        delete currTrip;
+        currTrip = NULL;
+        return true;
+    }
+
+    return false;
 }
 
 /**

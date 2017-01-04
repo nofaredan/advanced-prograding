@@ -14,7 +14,7 @@ private:
     TaxiCenter* taxiCenter;
     Map* map;
     GridNode*** arrGridNode;
-    int nWorldClock = 0;
+    int nWorldClock;
     Udp* udp;
 
 public:
@@ -25,12 +25,12 @@ public:
     void addDriver();
     void addTaxi();
     void addTrip();
-    void startDriving();
     void getDriverPlace();
     void moveOneStep();
     template <class Object>
     void getSerializObject(Object **object);
-    void sendSerializeInt(int nTask);
+    template <class Object>
+    void sendSerializePrimitive(Object object);
     template <class Object>
     void sendSerializeObject(Object* obj);
     };

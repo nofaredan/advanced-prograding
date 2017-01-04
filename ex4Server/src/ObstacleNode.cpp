@@ -3,3 +3,7 @@
 //
 
 #include "ObstacleNode.h"
+
+std::string ObstacleNode::getName(){
+    return "ObstacleNode";
+}

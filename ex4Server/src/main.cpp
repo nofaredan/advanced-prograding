@@ -12,7 +12,6 @@ int main(int argc, char **argv) {
 
     // get an input and go to the assignment accordingly:
     do {
-        cin.clear();
         cin >> userInput;
         switch (userInput) {
             case 1:
@@ -26,9 +25,6 @@ int main(int argc, char **argv) {
                 break;
             case 4:
                 flowManager->getDriverPlace();
-                break;
-            case 6:
-                flowManager->startDriving();
                 break;
             case 7:
                 delete flowManager;

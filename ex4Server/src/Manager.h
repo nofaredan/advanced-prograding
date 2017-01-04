@@ -28,6 +28,8 @@ public:
 
     virtual void printRode(Node *node) =0;
 
+    virtual void setAllRodeNodes(Node *lastNode) = 0;
+
     virtual std::vector<Node *> addNeighbors(Node *node) =0;
 
     virtual void calculateBestRoute(Point startPoint, Point endPoint);

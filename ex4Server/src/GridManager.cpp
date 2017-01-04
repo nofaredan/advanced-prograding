@@ -77,7 +77,23 @@ void GridManager::calculateBestRoute(Point startPoint, Point endPoint) {
     currentRow = getPlaceByPoint(start).getX();
     currentColumn = getPlaceByPoint(start).getY();
 
+    // init map
+    resetGrid();
     Manager::calculateBestRoute(startPoint, endPoint);
+
+}
+
+/**
+ * Initialize the grid.
+ */
+void GridManager::resetGrid() {
+    // a for loop that goes over the grid and initialized it:
+    for (int row = 0; row < sizeX; row++) {
+        for (int column = 0; column < sizeY; column++) {
+            ///// need to call set node type - MAP and not GridManager
+            grid[row][column]->reset();
+        }
+    }
 }
 
 /**
@@ -163,4 +179,26 @@ void GridManager::printRode(Node *node) {
     for (int i = nodes.size() - 1; i >= 0; i--) {
         std::cout << *(nodes[i]) << std::endl;
     }
+}
+
+/**
+ * save the rode at the end of the route calculation.
+ * @param node = the last node.
+ */
+void GridManager::setAllRodeNodes(Node *lastNode) {
+    // while the node is not null, get it's parent:
+    GridNode* currentNode;
+    while (lastNode != NULL) {
+        currentNode = (GridNode*)lastNode;
+        rodePoints.push(new Point(currentNode->getPoint().getX(), currentNode->getPoint().getY()));
+        lastNode = lastNode->getPreviousNode();
+    }
+}
+
+Point* GridManager::getPointOnRoad() {
+    // while the node is not null, get it's parent:
+    Point* point =  rodePoints.top();
+    rodePoints.pop();
+
+    return point;
 }

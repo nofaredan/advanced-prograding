@@ -3,6 +3,7 @@
 
 #include "Point.h"
 #include "Node.h"
+#include <string>
 
 /**
  * Grid node class.
@@ -17,6 +18,8 @@ public:
     GridNode(Point newPoint) : point(newPoint) {};
 
     Point getPoint() const;
+
+    virtual std::string getName();
 
     bool operator==(const Node &node);
 

@@ -163,33 +163,6 @@ src/Cab.cpp.s:
 	$(MAKE) -f CMakeFiles/ex4Server.dir/build.make CMakeFiles/ex4Server.dir/src/Cab.cpp.s
 .PHONY : src/Cab.cpp.s
 
-src/CommunicationManager.o: src/CommunicationManager.cpp.o
-
-.PHONY : src/CommunicationManager.o
-
-# target to build an object file
-src/CommunicationManager.cpp.o:
-	$(MAKE) -f CMakeFiles/ex4Server.dir/build.make CMakeFiles/ex4Server.dir/src/CommunicationManager.cpp.o
-.PHONY : src/CommunicationManager.cpp.o
-
-src/CommunicationManager.i: src/CommunicationManager.cpp.i
-
-.PHONY : src/CommunicationManager.i
-
-# target to preprocess a source file
-src/CommunicationManager.cpp.i:
-	$(MAKE) -f CMakeFiles/ex4Server.dir/build.make CMakeFiles/ex4Server.dir/src/CommunicationManager.cpp.i
-.PHONY : src/CommunicationManager.cpp.i
-
-src/CommunicationManager.s: src/CommunicationManager.cpp.s
-
-.PHONY : src/CommunicationManager.s
-
-# target to generate assembly for a file
-src/CommunicationManager.cpp.s:
-	$(MAKE) -f CMakeFiles/ex4Server.dir/build.make CMakeFiles/ex4Server.dir/src/CommunicationManager.cpp.s
-.PHONY : src/CommunicationManager.cpp.s
-
 src/Driver.o: src/Driver.cpp.o
 
 .PHONY : src/Driver.o
@@ -689,9 +662,6 @@ help:
 	@echo "... src/Cab.o"
 	@echo "... src/Cab.i"
 	@echo "... src/Cab.s"
-	@echo "... src/CommunicationManager.o"
-	@echo "... src/CommunicationManager.i"
-	@echo "... src/CommunicationManager.s"
 	@echo "... src/Driver.o"
 	@echo "... src/Driver.i"
 	@echo "... src/Driver.s"

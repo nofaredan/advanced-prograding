@@ -47,7 +47,7 @@ GridNode* Map::setNodeType(int x, int y) {
 */
 bool Map::isDirValid(int newRow, int newColumn) {
     return (GridManager::isDirValid(newRow, newColumn) &&
-            typeid(grid[newRow, newColumn]).name() == "ObstacleNode");
+            (grid[newRow][newColumn]->getName().compare("ObstacleNode")));
 }
 
 Map::~Map() {

@@ -5,8 +5,7 @@ using namespace std;
  * a constructor.
  */
 Node::Node() {
-    longestRode = -1;
-    previous = NULL;
+    reset();
 }
 
 /**
@@ -24,6 +23,12 @@ void Node::setLongestRode(int newLongestRode) {
 int Node::getLongestRode() {
     return longestRode;
 }
+
+void Node::reset() {
+    longestRode = -1;
+    previous = NULL;
+}
+
 
 /**
  *

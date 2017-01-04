@@ -63,10 +63,9 @@ void Driver::setCurrTrip(Trip *tripDriver) {
 /**
  * move the driver.
  */
-void Driver::move(Point newPlace) {
-
+void Driver::move(Point* newPlace) {
     // get the driver to the end point
-    currTrip->setCurrentPlace(newPlace);
+    currTrip->setCurrentPlace(*newPlace);
     currentPlace = currTrip->getCurrentPlace();
 }
 

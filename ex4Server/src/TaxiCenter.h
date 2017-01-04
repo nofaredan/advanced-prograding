@@ -26,7 +26,7 @@ public:
     void answerCall(Trip* trip);
     int getSizeAvailableCabs();
     int getSizeDrivers();
-    void startDriving();
+    void endOfDriving(int driverId);
     Point getDriverPlace(int id);
     Point getDriverPlaceInQueue(queue<Driver*> driverQueue, int id);
     Trip* connectTripToDriver(int nClockTime);

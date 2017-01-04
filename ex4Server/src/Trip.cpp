@@ -84,6 +84,14 @@ Point Trip::getEnd() {
 }
 
 /*
+* trip - getEnd
+* @return - returns end point
+*/
+bool Trip::isTripOver() {
+    return (end == currentPlace);
+}
+
+/*
 * trip - getTariff
 * @return - returns tariff
 */

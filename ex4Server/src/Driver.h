@@ -75,7 +75,8 @@ public:
     int getCabId();
     void setCab(Cab* cab);
     void setCurrTrip(Trip* tripDriver);
-    void move();
+    bool move();
+    void calculateBestRoute();
     int getId();
     Point getCurrentPlace();
     bool getHasTrip();

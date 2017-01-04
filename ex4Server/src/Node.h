@@ -22,6 +22,8 @@ public:
 
     void setPreviousNode(Node *previousNode);
 
+    void reset();
+
     Node *getPreviousNode();
 
     friend std::ostream &operator<<(std::ostream &os, Node &node);

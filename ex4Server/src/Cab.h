@@ -35,16 +35,13 @@ class Cab {
         ar & carManufactor;
         ar & color;
         ar & tariff;
-        ar & trip;
     }
 private:
-
     int cabId;
     double numKm;
     char carManufactor;
     char color;
     double tariff;
-    Trip trip;
 
 public:
     Cab(){};

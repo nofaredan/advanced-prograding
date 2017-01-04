@@ -108,16 +108,24 @@ void TaxiCenter::addCab(Cab *cab) {
     availableCabs.push_back(cab);
 }
 
-/*
-* TaxiCenter::startDriving
-* functions calls each driver for start driving
-*/
-void TaxiCenter::startDriving() {
-    while (busyDrivers.size() > 0) {
-        busyDrivers.front()->move();
-        drivers.push(busyDrivers.front());
+void TaxiCenter::endOfDriving(int driverId){
+    queue<Driver *> queueBusyDrivers;
+
+    // find driver
+    while (busyDrivers.size() > 0){
+        if (busyDrivers.front()->getId() == driverId){
+            // add to drivers
+            drivers.push(busyDrivers.front());
+
+        }
+        else{
+            queueBusyDrivers.push(busyDrivers.front());
+        }
+
         busyDrivers.pop();
     }
+
+    copyQueue(&queueBusyDrivers, &busyDrivers);
 }
 
 /*
@@ -210,8 +218,14 @@ Trip* TaxiCenter::connectTripToDriver(int nClockTime) {
         pendingTrip.pop_back();
 
     }
-    copyQueue(&queueDrivers, &drivers);
-    pendingTrip = vectorTrips;
+
+    if (queueDrivers.size() > 0){
+        copyQueue(&queueDrivers, &drivers);
+    }
+
+    if (vectorTrips.size() > 0){
+        pendingTrip = vectorTrips;
+    }
 
     return matchingTrip;
 }
@@ -241,6 +255,6 @@ Driver* TaxiCenter::getDriverById(int nDriverId) {
         busyDrivers.pop();
     }
 
-    copyQueue(&queueBusyDrivers, &drivers);
+    copyQueue(&queueBusyDrivers, &busyDrivers);
     return driver;
 }

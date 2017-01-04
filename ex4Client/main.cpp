@@ -8,14 +8,14 @@ std::stringstream ss;
 
 
 // create a udp connection -
-Udp udp(0, 5555);
+Udp* udp = new Udp(0, 5555);
 
 
 template <class Object>
 void deSerializedObject(Object** object) {
     char buffer[4000];
     char *end = buffer + 3999;
-    udp.reciveData(buffer, sizeof(buffer));
+    udp->reciveData(buffer, sizeof(buffer));
 
     boost::iostreams::basic_array_source<char> device(buffer, end);
     boost::iostreams::stream<boost::iostreams::basic_array_source<char> > s2(device);
@@ -27,7 +27,7 @@ void deSerializedObject(Object** object) {
 void deSerializeTask(int* nTask) {
     char buffer[4000];
     char* end = buffer + 3999;
-    udp.reciveData(buffer, sizeof(buffer));
+    udp->reciveData(buffer, sizeof(buffer));
 
     boost::iostreams::basic_array_source<char> device(buffer, end);
     boost::iostreams::stream<boost::iostreams::basic_array_source<char> > s2(device);
@@ -46,11 +46,11 @@ void sendSerializeObject(Object* obj){
     oa << obj;
     s.flush();
 
-    udp.sendData(serial_str);
+    udp->sendData(serial_str);
 }
 
 int main() {
-    udp.initialize();
+    udp->initialize();
 
     // get a driver-
     int id, age, experience, cabId;
@@ -77,22 +77,36 @@ int main() {
     do{
         deSerializeTask(&nTask);
 
-        // new trip task -
-        if (nTask == 1){
-            //*deSerializedObject() >> *trip;
-            deSerializedObject(&trip);
-        }
-        else if (nTask == 2) // move place
-        {
-            // get point
-            Point* newPoint;
-            //*deSerializedObject() >> *newPoint;
-            deSerializedObject(&newPoint);
-            driver->move(*newPoint);
-        }
+        switch (nTask){
 
+            // new trip task -
+            case 1:
+                deSerializedObject(&trip);
+                driver->setCurrTrip(trip);
+                break;
+
+            // move place
+            case 2:
+                // get point
+                Point* newPoint;
+                deSerializedObject(&newPoint);
+                driver->move(newPoint);
+
+                delete newPoint;
+                break;
+
+            // end of trip
+            case 3:
+                delete trip;
+                driver->setCurrTrip(NULL);
+                break;
+
+        }
     }while (nTask != 7);
 
+    // delete all -
+    delete udp;
+    delete driver;
 
     return 0;
 }

@@ -465,33 +465,9 @@ CMakeFiles/ex4Server.dir/src/ObstacleNode.cpp.o.provides: CMakeFiles/ex4Server.d
 CMakeFiles/ex4Server.dir/src/ObstacleNode.cpp.o.provides.build: CMakeFiles/ex4Server.dir/src/ObstacleNode.cpp.o
 
 
-CMakeFiles/ex4Server.dir/src/CommunicationManager.cpp.o: CMakeFiles/ex4Server.dir/flags.make
-CMakeFiles/ex4Server.dir/src/CommunicationManager.cpp.o: ../src/CommunicationManager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/ex4Server.dir/src/CommunicationManager.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ex4Server.dir/src/CommunicationManager.cpp.o -c "/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/CommunicationManager.cpp"
-
-CMakeFiles/ex4Server.dir/src/CommunicationManager.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ex4Server.dir/src/CommunicationManager.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/CommunicationManager.cpp" > CMakeFiles/ex4Server.dir/src/CommunicationManager.cpp.i
-
-CMakeFiles/ex4Server.dir/src/CommunicationManager.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ex4Server.dir/src/CommunicationManager.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/CommunicationManager.cpp" -o CMakeFiles/ex4Server.dir/src/CommunicationManager.cpp.s
-
-CMakeFiles/ex4Server.dir/src/CommunicationManager.cpp.o.requires:
-
-.PHONY : CMakeFiles/ex4Server.dir/src/CommunicationManager.cpp.o.requires
-
-CMakeFiles/ex4Server.dir/src/CommunicationManager.cpp.o.provides: CMakeFiles/ex4Server.dir/src/CommunicationManager.cpp.o.requires
-	$(MAKE) -f CMakeFiles/ex4Server.dir/build.make CMakeFiles/ex4Server.dir/src/CommunicationManager.cpp.o.provides.build
-.PHONY : CMakeFiles/ex4Server.dir/src/CommunicationManager.cpp.o.provides
-
-CMakeFiles/ex4Server.dir/src/CommunicationManager.cpp.o.provides.build: CMakeFiles/ex4Server.dir/src/CommunicationManager.cpp.o
-
-
 CMakeFiles/ex4Server.dir/src/Socket.cpp.o: CMakeFiles/ex4Server.dir/flags.make
 CMakeFiles/ex4Server.dir/src/Socket.cpp.o: ../src/Socket.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/ex4Server.dir/src/Socket.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/ex4Server.dir/src/Socket.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ex4Server.dir/src/Socket.cpp.o -c "/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Socket.cpp"
 
 CMakeFiles/ex4Server.dir/src/Socket.cpp.i: cmake_force
@@ -515,7 +491,7 @@ CMakeFiles/ex4Server.dir/src/Socket.cpp.o.provides.build: CMakeFiles/ex4Server.d
 
 CMakeFiles/ex4Server.dir/src/Udp.cpp.o: CMakeFiles/ex4Server.dir/flags.make
 CMakeFiles/ex4Server.dir/src/Udp.cpp.o: ../src/Udp.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/ex4Server.dir/src/Udp.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/ex4Server.dir/src/Udp.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ex4Server.dir/src/Udp.cpp.o -c "/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Udp.cpp"
 
 CMakeFiles/ex4Server.dir/src/Udp.cpp.i: cmake_force
@@ -556,7 +532,6 @@ ex4Server_OBJECTS = \
 "CMakeFiles/ex4Server.dir/src/Manager.cpp.o" \
 "CMakeFiles/ex4Server.dir/src/Point.cpp.o" \
 "CMakeFiles/ex4Server.dir/src/ObstacleNode.cpp.o" \
-"CMakeFiles/ex4Server.dir/src/CommunicationManager.cpp.o" \
 "CMakeFiles/ex4Server.dir/src/Socket.cpp.o" \
 "CMakeFiles/ex4Server.dir/src/Udp.cpp.o"
 
@@ -580,14 +555,13 @@ ex4Server: CMakeFiles/ex4Server.dir/src/GridNode.cpp.o
 ex4Server: CMakeFiles/ex4Server.dir/src/Manager.cpp.o
 ex4Server: CMakeFiles/ex4Server.dir/src/Point.cpp.o
 ex4Server: CMakeFiles/ex4Server.dir/src/ObstacleNode.cpp.o
-ex4Server: CMakeFiles/ex4Server.dir/src/CommunicationManager.cpp.o
 ex4Server: CMakeFiles/ex4Server.dir/src/Socket.cpp.o
 ex4Server: CMakeFiles/ex4Server.dir/src/Udp.cpp.o
 ex4Server: CMakeFiles/ex4Server.dir/build.make
 ex4Server: /usr/local/lib/libboost_serialization-mt.dylib
 ex4Server: /usr/local/lib/libboost_system-mt.dylib
 ex4Server: CMakeFiles/ex4Server.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_21) "Linking CXX executable ex4Server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_20) "Linking CXX executable ex4Server"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ex4Server.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -612,7 +586,6 @@ CMakeFiles/ex4Server.dir/requires: CMakeFiles/ex4Server.dir/src/GridNode.cpp.o.r
 CMakeFiles/ex4Server.dir/requires: CMakeFiles/ex4Server.dir/src/Manager.cpp.o.requires
 CMakeFiles/ex4Server.dir/requires: CMakeFiles/ex4Server.dir/src/Point.cpp.o.requires
 CMakeFiles/ex4Server.dir/requires: CMakeFiles/ex4Server.dir/src/ObstacleNode.cpp.o.requires
-CMakeFiles/ex4Server.dir/requires: CMakeFiles/ex4Server.dir/src/CommunicationManager.cpp.o.requires
 CMakeFiles/ex4Server.dir/requires: CMakeFiles/ex4Server.dir/src/Socket.cpp.o.requires
 CMakeFiles/ex4Server.dir/requires: CMakeFiles/ex4Server.dir/src/Udp.cpp.o.requires
 

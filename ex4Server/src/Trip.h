@@ -30,7 +30,6 @@ class Trip {
     template<class Archive>
     void serialize(Archive &ar, const unsigned int version){
         // attache to boost -
-
         ar & rideId;
         ar & meterPassed;
         ar & currentPlace;
@@ -65,6 +64,7 @@ public:
     int getRideId();
     Point getCurrentPlace();
     Point getEnd();
+    bool isTripOver();
     double getTariff();
     void setCurrentPlace(Point place);
 };

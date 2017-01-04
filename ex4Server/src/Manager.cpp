@@ -26,7 +26,7 @@ void Manager::calculateBestRoute(Point startPoint, Point endPoint) {
 
         // if we got to the ending point:
         if (*priorityNode == *endNode) {
-            printRode(priorityNode);
+            setAllRodeNodes(priorityNode);
         }
 
         // add neighbors to the queue:

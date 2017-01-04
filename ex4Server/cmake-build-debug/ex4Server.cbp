@@ -132,12 +132,6 @@
 		<Unit filename="/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Cab.h">
 			<Option target="ex4Server"/>
 		</Unit>
-		<Unit filename="/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/CommunicationManager.cpp">
-			<Option target="ex4Server"/>
-		</Unit>
-		<Unit filename="/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/CommunicationManager.h">
-			<Option target="ex4Server"/>
-		</Unit>
 		<Unit filename="/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Driver.cpp">
 			<Option target="ex4Server"/>
 		</Unit>

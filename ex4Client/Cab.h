@@ -35,7 +35,6 @@ class Cab {
         ar & carManufactor;
         ar & color;
         ar & tariff;
-        ar & trip;
     }
 
 private:
@@ -45,7 +44,6 @@ private:
     char carManufactor;
     char color;
     double tariff;
-    Trip trip;
 
 public:
     Cab(){};

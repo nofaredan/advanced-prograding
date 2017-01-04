@@ -5,6 +5,8 @@
  */
 FlowManager::FlowManager() {
     taxiCenter = new TaxiCenter();
+    nWorldClock = 0;
+    udp = NULL;
 }
 
 /**
@@ -89,12 +91,6 @@ void FlowManager::addTrip() {
     taxiCenter->answerCall(trip);
 }
 
-/**
- * start driving.
- */
-void FlowManager::startDriving() {
-    taxiCenter->startDriving();
-}
 
 /**
  * initialize the map.
@@ -148,7 +144,16 @@ FlowManager::~FlowManager() {
     if(taxiCenter != NULL) {
         delete taxiCenter;
     }
+
+    //close udp
+    if(udp != NULL) {
+        //close udp -
+        // send to client end of program
+        sendSerializePrimitive(7);
+        delete udp;
+    }
 }
+
 
 
 template <class Object>
@@ -164,13 +169,14 @@ void FlowManager::sendSerializeObject(Object* obj){
     udp->sendData(serial_str);
 }
 
-void FlowManager::sendSerializeInt(int nTask){
+template <class Object>
+void FlowManager::sendSerializePrimitive(Object object){
     // serialize object-
     std::string serial_str;
     boost::iostreams::back_insert_device<std::string> inserter(serial_str);
     boost::iostreams::stream<boost::iostreams::back_insert_device<std::string> > s(inserter);
     boost::archive::binary_oarchive oa(s);
-    oa << nTask;
+    oa << object;
     s.flush();
 
     udp->sendData(serial_str);
@@ -180,20 +186,43 @@ void FlowManager::moveOneStep() {
     // update the clock by one
     nWorldClock++;
     Trip* tMatchingTrip = taxiCenter->connectTripToDriver(nWorldClock);
-
+    bool bTripOver = false;
+    Driver* driver=  taxiCenter->getDriverById(udp->getNID());
     // if there's a new trip, sent to client the trip
     if (tMatchingTrip != NULL)
     {
         // sending new trip task to client
-        sendSerializeInt(1);
+        sendSerializePrimitive(1);
 
         // send to client the trip
         sendSerializeObject(tMatchingTrip);
+
+        // calc route -
+        driver->calculateBestRoute();
+
+        // move driver from first point
+        bTripOver = driver->move();
+    } // if driver has trip
+    else if (driver->getHasTrip()){
+        // sending new point task to client
+        sendSerializePrimitive(2);
+
+        // move driver
+        bTripOver = driver->move();
+
+        // get point from driver
+        Point* point = new Point(driver->getCurrentPlace().getX(), taxiCenter->getDriverById(udp->getNID())->getCurrentPlace().getY());
+        // send point to client
+        sendSerializeObject(point);
+
+        delete point;
     }
 
-    // sending new point task to client
-    sendSerializeInt(2);
+    // if trip is over, send it to client
+    if (bTripOver){
+        sendSerializePrimitive(3);
 
-    // move driver
-    taxiCenter->getDriverById(udp->getNID())->move();
+        // inform to taxi center that trip is over
+        taxiCenter->endOfDriving(udp->getNID());
+    }
 }
