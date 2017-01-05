@@ -30,6 +30,13 @@ GridManager::~GridManager() {
         delete grid[row];
     }
     delete grid;
+
+    while (rodePoints.size() > 0){
+        Point* point =  rodePoints.top();
+        rodePoints.pop();
+
+        delete point;
+    }
 }
 
 /**

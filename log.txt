@@ -1,0 +1,56 @@
+* commit 35aa7c0419eefc4dd34c54389263593fca29e8c3
+| Author: nofar edan <nofaredan@gmail.com>
+| Date:   Thu Jan 5 17:58:25 2017 +0200
+| 
+|     6th ex4 push, final push, after checking on u2
+|  
+* commit 31e0ca28e3049d5ae54baf6d9a1001b04faf40de
+| Author: nofar edan <nofaredan@gmail.com>
+| Date:   Thu Jan 5 00:24:25 2017 +0200
+| 
+|     5th ex4 push, almost final push, after checking on u2
+|  
+* commit 5112586cea9cae3adf5d21703018e63df59d51b0
+| Author: nofar edan <nofaredan@gmail.com>
+| Date:   Mon Jan 2 23:56:46 2017 +0200
+| 
+|     4th ex4 push, added connections between server and client, game loop
+|  
+* commit 3d0245ec7d191cdc41f79eb73e5b2b9596d8a165
+| Author: nofar edan <nofaredan@gmail.com>
+| Date:   Sat Dec 31 20:36:15 2016 +0200
+| 
+|     Third ex4 push, added connections between server and client
+|  
+* commit 4bad8de22f878008e9c8e5d2922713bde70a84b6
+| Author: nofar edan <nofaredan@gmail.com>
+| Date:   Sat Dec 31 01:13:42 2016 +0200
+| 
+|     Sec ex4 push
+|  
+* commit 5ff6f7a59a2b48c11ba4360c88d31e56bbb0cc0d
+| Author: nofar edan <nofaredan@gmail.com>
+| Date:   Fri Dec 30 11:25:19 2016 +0200
+| 
+|     First ex4 push
+|    
+*   commit 6a407b989e8f862ec22b107b8ad0ca0f34c744e4
+|\  Merge: b2b8968 1517b93
+| | Author: nofaredan <nofaredan@gmail.com>
+| | Date:   Sat Dec 17 16:16:40 2016 +0200
+| | 
+| |     Merge pull request #1 from nofaredan/nofar
+| |     
+| |     A change
+| |   
+| * commit 1517b93146d73b912f7760c01f1b5830701f18d4
+|/  Author: nofar edan <nofaredan@gmail.com>
+|   Date:   Sat Dec 17 16:15:25 2016 +0200
+|   
+|       A change
+|  
+* commit b2b896852c75ee495cef075ee372a0c79b9a0bec
+  Author: nofar edan <nofaredan@gmail.com>
+  Date:   Sat Dec 17 16:06:31 2016 +0200
+  
+      First commit
