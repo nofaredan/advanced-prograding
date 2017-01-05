@@ -5,7 +5,7 @@ int main(int argc, char **argv) {
 
     int userInput;
     // a new flow manager:
-    FlowManager* flowManager = new FlowManager();
+    FlowManager* flowManager = new FlowManager(atoi(argv[1]));
 
     // initialize the map:
     flowManager->initializeMap();
@@ -36,8 +36,6 @@ int main(int argc, char **argv) {
             default:
                 break;
         }
-
-
 
         } while (userInput != 7);
 

@@ -8,7 +8,7 @@ std::stringstream ss;
 
 
 // create a udp connection -
-Udp* udp = new Udp(0, 5555);
+Udp* udp;
 
 
 template <class Object>
@@ -49,7 +49,8 @@ void sendSerializeObject(Object* obj){
     udp->sendData(serial_str);
 }
 
-int main() {
+int main(int argc, char **argv) {
+    udp = new Udp(0, atoi(argv[2]));
     udp->initialize();
 
     // get a driver-

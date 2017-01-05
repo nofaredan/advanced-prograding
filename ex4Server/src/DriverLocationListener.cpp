@@ -9,5 +9,5 @@
  * @return a point of the driver's location
  */
 Point* DriverLocationListener::answerQuestion() {
-
+    return NULL;
 }

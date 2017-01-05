@@ -15,10 +15,11 @@ private:
     Map* map;
     GridNode*** arrGridNode;
     int nWorldClock;
+    int nPort;
     Udp* udp;
 
 public:
-    FlowManager();
+    FlowManager(int port);
     ~FlowManager();
     void initializeMap();
     TaxiCenter* getTaxiCenter();

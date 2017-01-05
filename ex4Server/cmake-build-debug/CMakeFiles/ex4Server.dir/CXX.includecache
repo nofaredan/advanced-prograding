@@ -40,26 +40,6 @@ boost/archive/binary_iarchive.hpp
 boost/serialization/vector.hpp
 -
 
-/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/CommunicationManager.cpp
-CommunicationManager.h
-/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/CommunicationManager.h
-
-/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/CommunicationManager.h
-iostream
--
-sys/socket.h
--
-stdio.h
--
-netinet/in.h
--
-arpa/inet.h
--
-unistd.h
--
-string.h
--
-
 /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Driver.cpp
 Driver.h
 /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Driver.h

@@ -1043,9 +1043,6 @@ CMakeFiles/ex4Server.dir/src/Cab.cpp.o: /usr/local/include/boost/utility/result_
 CMakeFiles/ex4Server.dir/src/Cab.cpp.o: /usr/local/include/boost/utility/swap.hpp
 CMakeFiles/ex4Server.dir/src/Cab.cpp.o: /usr/local/include/boost/version.hpp
 
-CMakeFiles/ex4Server.dir/src/CommunicationManager.cpp.o: ../src/CommunicationManager.cpp
-CMakeFiles/ex4Server.dir/src/CommunicationManager.cpp.o: ../src/CommunicationManager.h
-
 CMakeFiles/ex4Server.dir/src/Driver.cpp.o: ../src/Cab.h
 CMakeFiles/ex4Server.dir/src/Driver.cpp.o: ../src/Driver.cpp
 CMakeFiles/ex4Server.dir/src/Driver.cpp.o: ../src/Driver.h

@@ -7,6 +7,5 @@
 /*
 * Statistics::answerQuestion
 */
-void* Statistics::answerQuestion() {
-
+void Statistics::answerQuestion() {
 }

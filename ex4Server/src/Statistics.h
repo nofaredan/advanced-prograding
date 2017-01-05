@@ -8,7 +8,7 @@
 
 class Statistics {
 public:
-    void* answerQuestion();
+    void answerQuestion();
 };
 
 

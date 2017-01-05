@@ -3,10 +3,11 @@
 /**
  * The constructor
  */
-FlowManager::FlowManager() {
+FlowManager::FlowManager(int port) {
     taxiCenter = new TaxiCenter();
     nWorldClock = 0;
     udp = NULL;
+    nPort = port;
 }
 
 /**
@@ -19,7 +20,7 @@ void FlowManager::addDriver() {
     for(int i=0; i<numDrivers; i++){
 
         // create new udp server -
-        udp = new Udp(1, 5555);
+        udp = new Udp(1, nPort);
         udp->initialize();
 
         Driver *driver;
