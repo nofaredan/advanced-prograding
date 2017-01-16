@@ -12,10 +12,10 @@
 
 class Map: public GridManager {
 private:
-    vector<Point> obstacles;
+    std::vector<Point> obstacles;
 public:
     Map(){};
-    Map(int sizeX, int sizeY, vector<Point>* mapObstacles, GridNode ***arrGrid);
+    Map(int sizeX, int sizeY, std::vector<Point>* mapObstacles, GridNode ***arrGrid);
     ~Map();
     GridNode* setNodeType(int x, int y);
     bool isDirValid(int newRow, int newColumn);

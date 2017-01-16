@@ -6,9 +6,9 @@
 #include <iostream>
 #include <queue>
 #include <vector>
+#include <stack>
 
 using std::queue;
-using namespace std;
 
 /**
  * Class manager.
@@ -29,9 +29,11 @@ public:
 
     virtual void printRode(Node *node) =0;
 
-    virtual vector<Node *> addNeighbors(Node *node) =0;
+    virtual void setAllRodeNodes(Node *lastNode) = 0;
 
-    virtual void calculateBestRoute(Point startPoint, Point endPoint);
+    virtual std::vector<Node *> addNeighbors(Node *node) =0;
+
+    virtual std::stack<Point*> * calculateBestRoute(Point startPoint, Point endPoint);
 };
 
 #endif //EX1_MANAGER_H

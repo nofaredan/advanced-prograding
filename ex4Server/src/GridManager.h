@@ -3,6 +3,10 @@
 
 #include "Manager.h"
 #include "GridNode.h"
+#include <stack>
+#include <mutex>
+#include <pthread.h>
+
 
 /**
  * The Grid manager class.
@@ -12,6 +16,7 @@ private:
     int sizeX, sizeY;
     int currentRow, currentColumn;
 
+    std::stack<Point*> *rodePoints;
 
     void validate(int x, int y);
 
@@ -34,14 +39,19 @@ protected:
 
     void printRode(Node *node);
 
-    vector<Node *> addNeighbors(Node *node);
+    void setAllRodeNodes(Node *lastNode);
+
+    void resetGrid();
+
+    std::vector<Node *> addNeighbors(Node *node);
 
     virtual GridNode* setNodeType(int x, int y);
 
     virtual bool isDirValid(int newRow, int newColumn);
 
 public:
-    void calculateBestRoute(Point startPoint, Point endPoint);
+    std::stack<Point*> *calculateBestRoute(Point startPoint, Point endPoint);
+    //Point* getPointOnRoad();
 };
 
 #endif //EX1_GRIDMANAGER_H

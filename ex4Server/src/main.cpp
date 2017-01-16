@@ -1,11 +1,11 @@
 #include <iostream>
-
 #include "FlowManager.h"
 
 int main(int argc, char **argv) {
+
     int userInput;
     // a new flow manager:
-    FlowManager* flowManager = new FlowManager();
+    FlowManager* flowManager = new FlowManager(atoi(argv[1]));
 
     // initialize the map:
     flowManager->initializeMap();
@@ -26,14 +26,17 @@ int main(int argc, char **argv) {
             case 4:
                 flowManager->getDriverPlace();
                 break;
-            case 6:
-                flowManager->startDriving();
-                break;
             case 7:
                 delete flowManager;
                 break;
+            case 9:
+                flowManager->allowMoving();
+                break;
+
             default:
                 break;
         }
-    } while (userInput != 7);
+
+        } while (userInput != 7);
+
 }

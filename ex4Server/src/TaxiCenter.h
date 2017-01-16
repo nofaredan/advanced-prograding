@@ -26,12 +26,15 @@ public:
     void answerCall(Trip* trip);
     int getSizeAvailableCabs();
     int getSizeDrivers();
+    void endOfDriving(int driverId);
+    bool isDriving();
     void startDriving();
     Point getDriverPlace(int id);
     Point getDriverPlaceInQueue(queue<Driver*> driverQueue, int id);
+    Trip* connectTripToDriver(int nClockTime, Driver* driver);
+    Driver* getDriverById(int nDriverId);
 
-
-        private:
+private:
     void deleteQueueDrivers(queue<Driver*> queueDrivers);
     void deletePendingTrips(vector<Trip *> trips);
     void copyQueue(queue<Driver*>* queueDrivers, queue<Driver*>* anotherQueueDrivers);

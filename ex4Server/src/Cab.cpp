@@ -3,6 +3,7 @@
 //
 
 #include "Cab.h"
+using namespace std;
 
 void Cab::move() {
 

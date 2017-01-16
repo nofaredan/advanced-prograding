@@ -1,0 +1,4 @@
+/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/cmake-build-debug/CMakeFiles/ex4Server.dir
+/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/cmake-build-debug/CMakeFiles/core.dir

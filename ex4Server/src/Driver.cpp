@@ -13,15 +13,16 @@
  * @param taxiId = taxi id
  * @param mapDriver = driver's map
  */
-Driver::Driver(int driverId, int driverAge, char driverStatus, int experience, int taxiId, Map *mapDriver) {
+Driver::Driver(int driverId, int driverAge, char driverStatus, int experience, int taxiId) {
     id = driverId;
     age = driverAge;
-    driverStatus = status;
+    status = driverStatus;
     yearsExperience = experience;
     cabId = taxiId;
-    map = mapDriver;
     currentPlace = Point(0, 0);
     currTrip = NULL;
+    cab = NULL;
+    isDriving = false;
 }
 
 /**
@@ -59,17 +60,33 @@ void Driver::setCurrTrip(Trip *tripDriver) {
 /**
  * move the driver.
  */
-void Driver::move() {
+/*void Driver::calculateBestRoute() {
     // calculate route
-    map->calculateBestRoute(currTrip->getCurrentPlace(), currTrip->getEnd());
+   // map->calculateBestRoute(currTrip->getCurrentPlace(), currTrip->getEnd());
+}*/
+
+/**
+ * move the driver.
+ * @return if trip over
+ */
+bool Driver::move() {
+    // calculate route
+    Point* currentPointNode = currTrip->getPointOnRoad();
 
     // get the driver to the end point
-    currTrip->setCurrentPlace(currTrip->getEnd());
+    currTrip->setCurrentPlace(Point(currentPointNode->getX(), currentPointNode->getY()));
     currentPlace = currTrip->getCurrentPlace();
 
-    //delete trip
-    delete currTrip;
-    currTrip = NULL;
+    // delete
+    delete currentPointNode;
+    //delete trip if the trip is over-
+    if (currTrip->isTripOver()){
+        delete currTrip;
+        currTrip = NULL;
+        return true;
+    }
+
+    return false;
 }
 
 /**
@@ -102,4 +119,12 @@ Driver::~Driver() {
 
 bool Driver::getHasTrip() {
     return (currTrip != NULL);
+}
+
+bool Driver::isIsDriving() const {
+    return isDriving;
+}
+
+void Driver::setIsDriving(bool isDriving) {
+    Driver::isDriving = isDriving;
 }

@@ -3,6 +3,7 @@
 //
 
 #include "Trip.h"
+using namespace std;
 
 /**
 * C-TOR Trip
@@ -12,13 +13,23 @@
 * @param passengers - passengers details
 * @param tariffRide - tariff
 **/
-Trip::Trip(int id, Point startPoint, Point endPoint, int passengers, double tariffRide) {
+Trip::Trip(int id, Point startPoint, Point endPoint, int passengers, double tariffRide, int timeOfStart) {
     rideId = id;
     currentPlace = startPoint;
     end = endPoint;
     numPassengers = passengers;
     tariff = tariffRide;
     meterPassed = 0;
+    nTimeOfStart = timeOfStart;
+}
+
+Trip::~Trip(){
+    while (rodePoints->size() > 0){
+        Point* point =  rodePoints->top();
+        rodePoints->pop();
+
+        delete point;
+    }
 }
 
 void Trip:: move(){
@@ -82,6 +93,14 @@ Point Trip::getEnd() {
 }
 
 /*
+* trip - getEnd
+* @return - returns end point
+*/
+bool Trip::isTripOver() {
+    return (end == currentPlace);
+}
+
+/*
 * trip - getTariff
 * @return - returns tariff
 */
@@ -95,4 +114,24 @@ double Trip::getTariff() {
 */
 void Trip::setCurrentPlace(Point place) {
     currentPlace = place;
+}
+
+int Trip::getNTimeOfStart() const {
+    return nTimeOfStart;
+}
+
+stack<Point *, deque<Point *, allocator<Point *>>> *Trip::getRodePoints() const {
+    return rodePoints;
+}
+
+void Trip::setRodePoints(stack<Point *, deque<Point *, allocator<Point *>>> *rodePoints) {
+    Trip::rodePoints = rodePoints;
+}
+
+Point* Trip::getPointOnRoad() {
+    // while the node is not null, get it's parent:
+    Point* point =  rodePoints->top();
+    rodePoints->pop();
+
+    return point;
 }
