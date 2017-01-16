@@ -1047,12 +1047,6 @@ CMakeFiles/ex4Server.dir/src/Driver.cpp.o
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Cab.h
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Driver.cpp
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Driver.h
- /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/GridManager.h
- /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/GridNode.h
- /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Manager.h
- /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Map.h
- /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Node.h
- /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/ObstacleNode.h
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Passenger.h
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Point.h
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Statistics.h
@@ -3142,8 +3136,8 @@ CMakeFiles/ex4Server.dir/src/FlowManager.cpp.o
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Socket.h
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Statistics.h
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/TaxiCenter.h
+ /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Tcp.h
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Trip.h
- /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Udp.h
  /usr/local/include/boost/algorithm/string.hpp
  /usr/local/include/boost/algorithm/string/case_conv.hpp
  /usr/local/include/boost/algorithm/string/classification.hpp
@@ -12470,12 +12464,6 @@ CMakeFiles/ex4Server.dir/src/Statistics.cpp.o
 CMakeFiles/ex4Server.dir/src/TaxiCenter.cpp.o
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Cab.h
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Driver.h
- /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/GridManager.h
- /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/GridNode.h
- /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Manager.h
- /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Map.h
- /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Node.h
- /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/ObstacleNode.h
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Passenger.h
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Point.h
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Statistics.h
@@ -13518,6 +13506,10 @@ CMakeFiles/ex4Server.dir/src/TaxiCenter.cpp.o
  /usr/local/include/boost/utility/result_of.hpp
  /usr/local/include/boost/utility/swap.hpp
  /usr/local/include/boost/version.hpp
+CMakeFiles/ex4Server.dir/src/Tcp.cpp.o
+ /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Socket.h
+ /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Tcp.cpp
+ /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Tcp.h
 CMakeFiles/ex4Server.dir/src/Trip.cpp.o
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Passenger.h
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Point.h
@@ -14579,8 +14571,8 @@ CMakeFiles/ex4Server.dir/src/main.cpp.o
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Socket.h
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Statistics.h
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/TaxiCenter.h
+ /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Tcp.h
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Trip.h
- /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Udp.h
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/main.cpp
  /usr/local/include/boost/algorithm/string.hpp
  /usr/local/include/boost/algorithm/string/case_conv.hpp

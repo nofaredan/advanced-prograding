@@ -55,8 +55,6 @@ Statistics.h
 /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Statistics.h
 string
 -
-Map.h
-/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Map.h
 fstream
 -
 sstream
@@ -101,8 +99,12 @@ LuxuryCab.h
 /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/LuxuryCab.h
 TaxiCenter.h
 /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/TaxiCenter.h
-Udp.h
-/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Udp.h
+Tcp.h
+/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Tcp.h
+Map.h
+/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Map.h
+pthread.h
+-
 
 /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/GridManager.cpp
 GridManager.h
@@ -114,6 +116,10 @@ Manager.h
 GridNode.h
 /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/GridNode.h
 stack
+-
+mutex
+-
+pthread.h
 -
 
 /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/GridNode.cpp
@@ -150,6 +156,8 @@ iostream
 queue
 -
 vector
+-
+stack
 -
 
 /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Map.cpp
@@ -288,6 +296,16 @@ queue
 Driver.h
 /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Driver.h
 
+/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Tcp.cpp
+Tcp.h
+/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Tcp.h
+
+/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Tcp.h
+Socket.h
+/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Socket.h
+pthread.h
+-
+
 /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Trip.cpp
 Trip.h
 /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Trip.h
@@ -297,6 +315,8 @@ Point.h
 /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Point.h
 Passenger.h
 /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Passenger.h
+stack
+-
 vector
 -
 fstream

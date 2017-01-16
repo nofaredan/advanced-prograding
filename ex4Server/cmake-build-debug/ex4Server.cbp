@@ -222,6 +222,12 @@
 		<Unit filename="/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/TaxiCenter.h">
 			<Option target="ex4Server"/>
 		</Unit>
+		<Unit filename="/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Tcp.cpp">
+			<Option target="ex4Server"/>
+		</Unit>
+		<Unit filename="/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Tcp.h">
+			<Option target="ex4Server"/>
+		</Unit>
 		<Unit filename="/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Trip.cpp">
 			<Option target="ex4Server"/>
 		</Unit>

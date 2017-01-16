@@ -7,6 +7,7 @@
 
 #include "Point.h"
 #include "Passenger.h"
+#include <stack>
 #include <vector>
 #include <fstream>
 #include <sstream>
@@ -46,6 +47,12 @@ private:
     Point end;
     int numPassengers;
     int nTimeOfStart;
+    std::stack<Point*> *rodePoints;
+public:
+    std::stack<Point *, std::deque<Point *, std::allocator<Point *>>> *getRodePoints() const;
+
+    void setRodePoints(std::stack<Point *, std::deque<Point *, std::allocator<Point *>>> *rodePoints);
+
 public:
     int getNTimeOfStart() const;
 
@@ -55,6 +62,7 @@ private:
 
 public:
     Trip(){};
+    ~Trip();
     Trip(int id, Point startPoint, Point endPoint, int passengers,double tariffRide, int timeOfStart);
     void move();
     void addPassenger();
@@ -64,6 +72,7 @@ public:
     int getRideId();
     Point getCurrentPlace();
     Point getEnd();
+    Point* getPointOnRoad();
     bool isTripOver();
     double getTariff();
     void setCurrentPlace(Point place);

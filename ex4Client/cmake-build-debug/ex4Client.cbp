@@ -112,6 +112,12 @@
 		<Unit filename="/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Client/Socket.h">
 			<Option target="ex4Client"/>
 		</Unit>
+		<Unit filename="/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Client/Tcp.cpp">
+			<Option target="ex4Client"/>
+		</Unit>
+		<Unit filename="/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Client/Tcp.h">
+			<Option target="ex4Client"/>
+		</Unit>
 		<Unit filename="/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Client/Trip.cpp">
 			<Option target="ex4Client"/>
 		</Unit>

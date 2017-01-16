@@ -6,6 +6,7 @@
 #include <iostream>
 #include <queue>
 #include <vector>
+#include <stack>
 
 using std::queue;
 
@@ -32,7 +33,7 @@ public:
 
     virtual std::vector<Node *> addNeighbors(Node *node) =0;
 
-    virtual void calculateBestRoute(Point startPoint, Point endPoint);
+    virtual std::stack<Point*> * calculateBestRoute(Point startPoint, Point endPoint);
 };
 
 #endif //EX1_MANAGER_H

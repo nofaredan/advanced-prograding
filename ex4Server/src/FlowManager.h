@@ -3,7 +3,9 @@
 
 #include "LuxuryCab.h"
 #include "TaxiCenter.h"
-#include "Udp.h"
+#include "Tcp.h"
+#include "Map.h"
+#include <pthread.h>
 
 using namespace std;
 using namespace boost::archive;
@@ -11,13 +13,17 @@ using namespace boost::archive;
 
 class FlowManager {
 private:
-    TaxiCenter* taxiCenter;
-    Map* map;
+    static Map* map;
+    static Tcp* tcp;
+    static TaxiCenter* taxiCenter;
     GridNode*** arrGridNode;
-    int nWorldClock;
+    static int nWorldClock;
+    static int numberOfDrivers;
     int nPort;
-    Udp* udp;
-
+    static vector<pthread_t> vecTripThreads;
+    static bool bMoveDrivers;
+    static bool bKeepThreadAlive;
+    static bool* bThreadsCalculating;
 public:
     FlowManager(int port);
     ~FlowManager();
@@ -27,13 +33,17 @@ public:
     void addTaxi();
     void addTrip();
     void getDriverPlace();
-    void moveOneStep();
+    bool isCalc();
+    static void moveOneStep(Driver* driver, int socketNumber);
+    void allowMoving();
     template <class Object>
-    void getSerializObject(Object **object);
+    static void getSerializObject(Object **object, int socketNumber);
     template <class Object>
-    void sendSerializePrimitive(Object object);
+    static void sendSerializePrimitive(Object object, int socketNumber);
     template <class Object>
-    void sendSerializeObject(Object* obj);
+    static void sendSerializeObject(Object* obj, int socketNumer);
+    static void* calculateBestRoute(void* trip);
+    static void* handelThread(void* socketNumber);
     };
 
 #endif //EX2_FLOWMANAGER_H

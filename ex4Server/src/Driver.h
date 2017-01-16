@@ -10,7 +10,6 @@
 #include "Trip.h"
 #include "Statistics.h"
 #include <string>
-#include "Map.h"
 //using namespace std;
 
 #include <fstream>
@@ -57,26 +56,29 @@ private:
     int avgSatisfaction;
     Cab* cab;
     int cabId;
+    bool isDriving;
+public:
+    bool isIsDriving() const;
+
+    void setIsDriving(bool isDriving);
+
+private:
     int satisfaction;
     int customers;
     Trip* currTrip;
     //Statistics statistics[];
-    Map* map;
     Point currentPlace;
-public:
-    void setMap(Map *map);
 
 public:
     Driver(){};
     Driver(int driverId, int driverAge, char driverStatus,int experience,
-           int taxiId, Map* mapDriver);
+           int taxiId);
     ~Driver();
     Cab* getCab();
     int getCabId();
     void setCab(Cab* cab);
     void setCurrTrip(Trip* tripDriver);
     bool move();
-    void calculateBestRoute();
     int getId();
     Point getCurrentPlace();
     bool getHasTrip();

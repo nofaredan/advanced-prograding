@@ -17,6 +17,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/ex4Server.dir/src/Point.cpp.o"
   "CMakeFiles/ex4Server.dir/src/ObstacleNode.cpp.o"
   "CMakeFiles/ex4Server.dir/src/Socket.cpp.o"
+  "CMakeFiles/ex4Server.dir/src/Tcp.cpp.o"
   "CMakeFiles/ex4Server.dir/src/Udp.cpp.o"
   "ex4Server.pdb"
   "ex4Server"

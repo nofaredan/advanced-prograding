@@ -30,7 +30,7 @@ int main(int argc, char **argv) {
                 delete flowManager;
                 break;
             case 9:
-                flowManager->moveOneStep();
+                flowManager->allowMoving();
                 break;
 
             default:

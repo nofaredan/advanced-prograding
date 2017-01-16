@@ -4,6 +4,9 @@
 #include "Manager.h"
 #include "GridNode.h"
 #include <stack>
+#include <mutex>
+#include <pthread.h>
+
 
 /**
  * The Grid manager class.
@@ -13,7 +16,7 @@ private:
     int sizeX, sizeY;
     int currentRow, currentColumn;
 
-    std::stack<Point*> rodePoints;
+    std::stack<Point*> *rodePoints;
 
     void validate(int x, int y);
 
@@ -47,8 +50,8 @@ protected:
     virtual bool isDirValid(int newRow, int newColumn);
 
 public:
-    void calculateBestRoute(Point startPoint, Point endPoint);
-    Point* getPointOnRoad();
+    std::stack<Point*> *calculateBestRoute(Point startPoint, Point endPoint);
+    //Point* getPointOnRoad();
 };
 
 #endif //EX1_GRIDMANAGER_H

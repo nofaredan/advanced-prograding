@@ -66,7 +66,7 @@ CMAKE_BINARY_DIR = "/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכ
 CMakeFiles/ex4Client.dir/all:
 	$(MAKE) -f CMakeFiles/ex4Client.dir/build.make CMakeFiles/ex4Client.dir/depend
 	$(MAKE) -f CMakeFiles/ex4Client.dir/build.make CMakeFiles/ex4Client.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Client/cmake-build-debug/CMakeFiles" --progress-num=1,2,3,4,5,6,7,8,9 "Built target ex4Client"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Client/cmake-build-debug/CMakeFiles" --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target ex4Client"
 .PHONY : CMakeFiles/ex4Client.dir/all
 
 # Include target in all.
@@ -76,7 +76,7 @@ all: CMakeFiles/ex4Client.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ex4Client.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Client/cmake-build-debug/CMakeFiles" 9
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Client/cmake-build-debug/CMakeFiles" 10
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ex4Client.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Client/cmake-build-debug/CMakeFiles" 0
 .PHONY : CMakeFiles/ex4Client.dir/rule

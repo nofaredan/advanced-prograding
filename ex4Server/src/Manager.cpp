@@ -8,8 +8,7 @@ using namespace std;
  *  @param endPoint - ending point
  * Calculates the best route.
  */
-void Manager::calculateBestRoute(Point startPoint, Point endPoint) {
-
+std::stack<Point*> * Manager::calculateBestRoute(Point startPoint, Point endPoint) {
     // a queue of nodes:
     queue<Node *> priority;
     Node *endNode = getEndNode();
@@ -41,4 +40,6 @@ void Manager::calculateBestRoute(Point startPoint, Point endPoint) {
             }
         }
     }
+
+    return NULL;
 }

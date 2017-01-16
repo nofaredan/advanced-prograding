@@ -1,21 +1,21 @@
 #include <iostream>
 #include "Driver.h"
-#include "Udp.h"
+#include "Tcp.h"
 
 using namespace std;
 using namespace boost::archive;
 std::stringstream ss;
 
 
-// create a udp connection -
-Udp* udp;
+// create a tcp connection -
+Tcp* tcp;
 
 
 template <class Object>
 void deSerializedObject(Object** object) {
-    char buffer[4000];
-    char *end = buffer + 3999;
-    udp->reciveData(buffer, sizeof(buffer));
+    char buffer[131072];
+    char *end = buffer + 131071;
+    tcp->reciveData(buffer, sizeof(buffer));
 
     boost::iostreams::basic_array_source<char> device(buffer, end);
     boost::iostreams::stream<boost::iostreams::basic_array_source<char> > s2(device);
@@ -24,10 +24,23 @@ void deSerializedObject(Object** object) {
     ia >> *object;
 }
 
+template <class Object>
+void sendSerializePrimitive(Object object){
+    // serialize object-
+    std::string serial_str;
+    boost::iostreams::back_insert_device<std::string> inserter(serial_str);
+    boost::iostreams::stream<boost::iostreams::back_insert_device<std::string> > s(inserter);
+    boost::archive::binary_oarchive oa(s);
+    oa << object;
+    s.flush();
+
+    tcp->sendData(serial_str);
+}
+
 void deSerializeTask(int* nTask) {
-    char buffer[4000];
-    char* end = buffer + 3999;
-    udp->reciveData(buffer, sizeof(buffer));
+    char buffer[131072];
+    char* end = buffer + 131071;
+    tcp->reciveData(buffer, sizeof(buffer));
 
     boost::iostreams::basic_array_source<char> device(buffer, end);
     boost::iostreams::stream<boost::iostreams::basic_array_source<char> > s2(device);
@@ -46,12 +59,12 @@ void sendSerializeObject(Object* obj){
     oa << obj;
     s.flush();
 
-    udp->sendData(serial_str);
+    tcp->sendData(serial_str);
 }
 
 int main(int argc, char **argv) {
-    udp = new Udp(0, atoi(argv[2]));
-    udp->initialize();
+    tcp = new Tcp(0, atoi(argv[2]));
+    tcp->initialize();
 
     // get a driver-
     int id, age, experience, cabId;
@@ -62,10 +75,11 @@ int main(int argc, char **argv) {
     // create new driver-
     Driver *driver = new Driver(id, age, status, experience, cabId);
 
+    // if server asked for a driver-
     sendSerializeObject(driver);
 
     // get taxi from server-
-    Cab* cab;
+    Cab* cab = NULL;
     deSerializedObject(&cab);
 
     driver->setCab(cab);
@@ -79,7 +93,6 @@ int main(int argc, char **argv) {
         deSerializeTask(&nTask);
 
         switch (nTask){
-
             // new trip task -
             case 1:
                 deSerializedObject(&trip);
@@ -106,7 +119,7 @@ int main(int argc, char **argv) {
     }while (nTask != 7);
 
     // delete all -
-    delete udp;
+    delete tcp;
     delete driver;
 
     return 0;

@@ -27,9 +27,11 @@ public:
     int getSizeAvailableCabs();
     int getSizeDrivers();
     void endOfDriving(int driverId);
+    bool isDriving();
+    void startDriving();
     Point getDriverPlace(int id);
     Point getDriverPlaceInQueue(queue<Driver*> driverQueue, int id);
-    Trip* connectTripToDriver(int nClockTime);
+    Trip* connectTripToDriver(int nClockTime, Driver* driver);
     Driver* getDriverById(int nDriverId);
 
 private:

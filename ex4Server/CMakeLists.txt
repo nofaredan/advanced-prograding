@@ -11,7 +11,7 @@ set(SOURCE_FILES src/main.cpp src/Cab.cpp src/Cab.h src/FlowManager.cpp src/Flow
         src/Statistics.h src/DriverLocationListener.cpp src/DriverLocationListener.h src/Map.cpp
         src/Map.h src/Node.cpp src/GridManager.cpp src/GridManager.h src/GridNode.cpp src/Node.h
         src/GridNode.h src/Manager.cpp src/Manager.h src/Point.h src/Point.cpp src/ObstacleNode.cpp
-        src/ObstacleNode.h src/Socket.cpp
+        src/ObstacleNode.h src/Socket.cpp src/Tcp.h src/Tcp.cpp
         src/Socket.h src/Udp.cpp src/Udp.h)
 
 add_library(core ${core_SRCS})

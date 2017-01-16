@@ -23,6 +23,15 @@ Trip::Trip(int id, Point startPoint, Point endPoint, int passengers, double tari
     nTimeOfStart = timeOfStart;
 }
 
+Trip::~Trip(){
+    while (rodePoints->size() > 0){
+        Point* point =  rodePoints->top();
+        rodePoints->pop();
+
+        delete point;
+    }
+}
+
 void Trip:: move(){
 
 }
@@ -109,4 +118,20 @@ void Trip::setCurrentPlace(Point place) {
 
 int Trip::getNTimeOfStart() const {
     return nTimeOfStart;
+}
+
+stack<Point *, deque<Point *, allocator<Point *>>> *Trip::getRodePoints() const {
+    return rodePoints;
+}
+
+void Trip::setRodePoints(stack<Point *, deque<Point *, allocator<Point *>>> *rodePoints) {
+    Trip::rodePoints = rodePoints;
+}
+
+Point* Trip::getPointOnRoad() {
+    // while the node is not null, get it's parent:
+    Point* point =  rodePoints->top();
+    rodePoints->pop();
+
+    return point;
 }

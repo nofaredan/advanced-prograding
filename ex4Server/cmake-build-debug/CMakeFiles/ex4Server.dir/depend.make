@@ -1046,12 +1046,6 @@ CMakeFiles/ex4Server.dir/src/Cab.cpp.o: /usr/local/include/boost/version.hpp
 CMakeFiles/ex4Server.dir/src/Driver.cpp.o: ../src/Cab.h
 CMakeFiles/ex4Server.dir/src/Driver.cpp.o: ../src/Driver.cpp
 CMakeFiles/ex4Server.dir/src/Driver.cpp.o: ../src/Driver.h
-CMakeFiles/ex4Server.dir/src/Driver.cpp.o: ../src/GridManager.h
-CMakeFiles/ex4Server.dir/src/Driver.cpp.o: ../src/GridNode.h
-CMakeFiles/ex4Server.dir/src/Driver.cpp.o: ../src/Manager.h
-CMakeFiles/ex4Server.dir/src/Driver.cpp.o: ../src/Map.h
-CMakeFiles/ex4Server.dir/src/Driver.cpp.o: ../src/Node.h
-CMakeFiles/ex4Server.dir/src/Driver.cpp.o: ../src/ObstacleNode.h
 CMakeFiles/ex4Server.dir/src/Driver.cpp.o: ../src/Passenger.h
 CMakeFiles/ex4Server.dir/src/Driver.cpp.o: ../src/Point.h
 CMakeFiles/ex4Server.dir/src/Driver.cpp.o: ../src/Statistics.h
@@ -3141,8 +3135,8 @@ CMakeFiles/ex4Server.dir/src/FlowManager.cpp.o: ../src/Point.h
 CMakeFiles/ex4Server.dir/src/FlowManager.cpp.o: ../src/Socket.h
 CMakeFiles/ex4Server.dir/src/FlowManager.cpp.o: ../src/Statistics.h
 CMakeFiles/ex4Server.dir/src/FlowManager.cpp.o: ../src/TaxiCenter.h
+CMakeFiles/ex4Server.dir/src/FlowManager.cpp.o: ../src/Tcp.h
 CMakeFiles/ex4Server.dir/src/FlowManager.cpp.o: ../src/Trip.h
-CMakeFiles/ex4Server.dir/src/FlowManager.cpp.o: ../src/Udp.h
 CMakeFiles/ex4Server.dir/src/FlowManager.cpp.o: /usr/local/include/boost/algorithm/string.hpp
 CMakeFiles/ex4Server.dir/src/FlowManager.cpp.o: /usr/local/include/boost/algorithm/string/case_conv.hpp
 CMakeFiles/ex4Server.dir/src/FlowManager.cpp.o: /usr/local/include/boost/algorithm/string/classification.hpp
@@ -12469,12 +12463,6 @@ CMakeFiles/ex4Server.dir/src/Statistics.cpp.o: ../src/Statistics.h
 
 CMakeFiles/ex4Server.dir/src/TaxiCenter.cpp.o: ../src/Cab.h
 CMakeFiles/ex4Server.dir/src/TaxiCenter.cpp.o: ../src/Driver.h
-CMakeFiles/ex4Server.dir/src/TaxiCenter.cpp.o: ../src/GridManager.h
-CMakeFiles/ex4Server.dir/src/TaxiCenter.cpp.o: ../src/GridNode.h
-CMakeFiles/ex4Server.dir/src/TaxiCenter.cpp.o: ../src/Manager.h
-CMakeFiles/ex4Server.dir/src/TaxiCenter.cpp.o: ../src/Map.h
-CMakeFiles/ex4Server.dir/src/TaxiCenter.cpp.o: ../src/Node.h
-CMakeFiles/ex4Server.dir/src/TaxiCenter.cpp.o: ../src/ObstacleNode.h
 CMakeFiles/ex4Server.dir/src/TaxiCenter.cpp.o: ../src/Passenger.h
 CMakeFiles/ex4Server.dir/src/TaxiCenter.cpp.o: ../src/Point.h
 CMakeFiles/ex4Server.dir/src/TaxiCenter.cpp.o: ../src/Statistics.h
@@ -13517,6 +13505,10 @@ CMakeFiles/ex4Server.dir/src/TaxiCenter.cpp.o: /usr/local/include/boost/utility/
 CMakeFiles/ex4Server.dir/src/TaxiCenter.cpp.o: /usr/local/include/boost/utility/result_of.hpp
 CMakeFiles/ex4Server.dir/src/TaxiCenter.cpp.o: /usr/local/include/boost/utility/swap.hpp
 CMakeFiles/ex4Server.dir/src/TaxiCenter.cpp.o: /usr/local/include/boost/version.hpp
+
+CMakeFiles/ex4Server.dir/src/Tcp.cpp.o: ../src/Socket.h
+CMakeFiles/ex4Server.dir/src/Tcp.cpp.o: ../src/Tcp.cpp
+CMakeFiles/ex4Server.dir/src/Tcp.cpp.o: ../src/Tcp.h
 
 CMakeFiles/ex4Server.dir/src/Trip.cpp.o: ../src/Passenger.h
 CMakeFiles/ex4Server.dir/src/Trip.cpp.o: ../src/Point.h
@@ -14578,8 +14570,8 @@ CMakeFiles/ex4Server.dir/src/main.cpp.o: ../src/Point.h
 CMakeFiles/ex4Server.dir/src/main.cpp.o: ../src/Socket.h
 CMakeFiles/ex4Server.dir/src/main.cpp.o: ../src/Statistics.h
 CMakeFiles/ex4Server.dir/src/main.cpp.o: ../src/TaxiCenter.h
+CMakeFiles/ex4Server.dir/src/main.cpp.o: ../src/Tcp.h
 CMakeFiles/ex4Server.dir/src/main.cpp.o: ../src/Trip.h
-CMakeFiles/ex4Server.dir/src/main.cpp.o: ../src/Udp.h
 CMakeFiles/ex4Server.dir/src/main.cpp.o: ../src/main.cpp
 CMakeFiles/ex4Server.dir/src/main.cpp.o: /usr/local/include/boost/algorithm/string.hpp
 CMakeFiles/ex4Server.dir/src/main.cpp.o: /usr/local/include/boost/algorithm/string/case_conv.hpp

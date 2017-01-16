@@ -170,6 +170,14 @@ iostream
 string
 -
 
+/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Client/Tcp.cpp
+Tcp.h
+/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Client/Tcp.h
+
+/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Client/Tcp.h
+Socket.h
+/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Client/Socket.h
+
 /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Client/Trip.cpp
 Trip.h
 /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Client/Trip.h
@@ -223,8 +231,8 @@ iostream
 -
 Driver.h
 /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Client/Driver.h
-Udp.h
-/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Client/Udp.h
+Tcp.h
+/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Client/Tcp.h
 
 /usr/local/include/boost/algorithm/string.hpp
 boost/algorithm/string/std_containers_traits.hpp

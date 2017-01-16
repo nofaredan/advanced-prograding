@@ -4152,6 +4152,10 @@ CMakeFiles/ex4Client.dir/Point.cpp.o
 CMakeFiles/ex4Client.dir/Socket.cpp.o
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Client/Socket.cpp
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Client/Socket.h
+CMakeFiles/ex4Client.dir/Tcp.cpp.o
+ /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Client/Socket.h
+ /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Client/Tcp.cpp
+ /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Client/Tcp.h
 CMakeFiles/ex4Client.dir/Trip.cpp.o
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Client/Passenger.h
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Client/Point.h
@@ -5203,8 +5207,8 @@ CMakeFiles/ex4Client.dir/main.cpp.o
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Client/Passenger.h
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Client/Point.h
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Client/Socket.h
+ /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Client/Tcp.h
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Client/Trip.h
- /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Client/Udp.h
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Client/main.cpp
  /usr/local/include/boost/algorithm/string.hpp
  /usr/local/include/boost/algorithm/string/case_conv.hpp

@@ -30,13 +30,6 @@ GridManager::~GridManager() {
         delete grid[row];
     }
     delete grid;
-
-    while (rodePoints.size() > 0){
-        Point* point =  rodePoints.top();
-        rodePoints.pop();
-
-        delete point;
-    }
 }
 
 /**
@@ -73,12 +66,14 @@ void GridManager::initialize() {
 GridNode* GridManager::setNodeType(int x, int y){
     return new GridNode(Point(x, y));
 }
+
 /**
  * calculate the best route.
  * @param startPoint = the start point.
  * @param endPoint = the end point.
  */
-void GridManager::calculateBestRoute(Point startPoint, Point endPoint) {
+std::stack<Point*> *GridManager::calculateBestRoute(Point startPoint, Point endPoint) {
+    rodePoints = new stack<Point*>();
     start = startPoint;
     end = endPoint;
     currentRow = getPlaceByPoint(start).getX();
@@ -88,6 +83,7 @@ void GridManager::calculateBestRoute(Point startPoint, Point endPoint) {
     resetGrid();
     Manager::calculateBestRoute(startPoint, endPoint);
 
+    return rodePoints;
 }
 
 /**
@@ -197,15 +193,7 @@ void GridManager::setAllRodeNodes(Node *lastNode) {
     GridNode* currentNode;
     while (lastNode != NULL) {
         currentNode = (GridNode*)lastNode;
-        rodePoints.push(new Point(currentNode->getPoint().getX(), currentNode->getPoint().getY()));
+        rodePoints->push(new Point(currentNode->getPoint().getX(), currentNode->getPoint().getY()));
         lastNode = lastNode->getPreviousNode();
     }
-}
-
-Point* GridManager::getPointOnRoad() {
-    // while the node is not null, get it's parent:
-    Point* point =  rodePoints.top();
-    rodePoints.pop();
-
-    return point;
 }

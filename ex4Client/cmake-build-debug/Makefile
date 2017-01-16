@@ -258,6 +258,33 @@ Socket.cpp.s:
 	$(MAKE) -f CMakeFiles/ex4Client.dir/build.make CMakeFiles/ex4Client.dir/Socket.cpp.s
 .PHONY : Socket.cpp.s
 
+Tcp.o: Tcp.cpp.o
+
+.PHONY : Tcp.o
+
+# target to build an object file
+Tcp.cpp.o:
+	$(MAKE) -f CMakeFiles/ex4Client.dir/build.make CMakeFiles/ex4Client.dir/Tcp.cpp.o
+.PHONY : Tcp.cpp.o
+
+Tcp.i: Tcp.cpp.i
+
+.PHONY : Tcp.i
+
+# target to preprocess a source file
+Tcp.cpp.i:
+	$(MAKE) -f CMakeFiles/ex4Client.dir/build.make CMakeFiles/ex4Client.dir/Tcp.cpp.i
+.PHONY : Tcp.cpp.i
+
+Tcp.s: Tcp.cpp.s
+
+.PHONY : Tcp.s
+
+# target to generate assembly for a file
+Tcp.cpp.s:
+	$(MAKE) -f CMakeFiles/ex4Client.dir/build.make CMakeFiles/ex4Client.dir/Tcp.cpp.s
+.PHONY : Tcp.cpp.s
+
 Trip.o: Trip.cpp.o
 
 .PHONY : Trip.o
@@ -363,6 +390,9 @@ help:
 	@echo "... Socket.o"
 	@echo "... Socket.i"
 	@echo "... Socket.s"
+	@echo "... Tcp.o"
+	@echo "... Tcp.i"
+	@echo "... Tcp.s"
 	@echo "... Trip.o"
 	@echo "... Trip.i"
 	@echo "... Trip.s"

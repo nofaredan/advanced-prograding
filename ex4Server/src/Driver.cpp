@@ -13,16 +13,16 @@
  * @param taxiId = taxi id
  * @param mapDriver = driver's map
  */
-Driver::Driver(int driverId, int driverAge, char driverStatus, int experience, int taxiId, Map *mapDriver) {
+Driver::Driver(int driverId, int driverAge, char driverStatus, int experience, int taxiId) {
     id = driverId;
     age = driverAge;
     status = driverStatus;
     yearsExperience = experience;
     cabId = taxiId;
-    map = mapDriver;
     currentPlace = Point(0, 0);
     currTrip = NULL;
     cab = NULL;
+    isDriving = false;
 }
 
 /**
@@ -60,10 +60,10 @@ void Driver::setCurrTrip(Trip *tripDriver) {
 /**
  * move the driver.
  */
-void Driver::calculateBestRoute() {
+/*void Driver::calculateBestRoute() {
     // calculate route
-    map->calculateBestRoute(currTrip->getCurrentPlace(), currTrip->getEnd());
-}
+   // map->calculateBestRoute(currTrip->getCurrentPlace(), currTrip->getEnd());
+}*/
 
 /**
  * move the driver.
@@ -71,7 +71,7 @@ void Driver::calculateBestRoute() {
  */
 bool Driver::move() {
     // calculate route
-    Point* currentPointNode = map->getPointOnRoad();
+    Point* currentPointNode = currTrip->getPointOnRoad();
 
     // get the driver to the end point
     currTrip->setCurrentPlace(Point(currentPointNode->getX(), currentPointNode->getY()));
@@ -121,6 +121,10 @@ bool Driver::getHasTrip() {
     return (currTrip != NULL);
 }
 
-void Driver::setMap(Map *map) {
-    Driver::map = map;
+bool Driver::isIsDriving() const {
+    return isDriving;
+}
+
+void Driver::setIsDriving(bool isDriving) {
+    Driver::isDriving = isDriving;
 }

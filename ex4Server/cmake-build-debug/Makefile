@@ -568,6 +568,33 @@ src/TaxiCenter.cpp.s:
 	$(MAKE) -f CMakeFiles/ex4Server.dir/build.make CMakeFiles/ex4Server.dir/src/TaxiCenter.cpp.s
 .PHONY : src/TaxiCenter.cpp.s
 
+src/Tcp.o: src/Tcp.cpp.o
+
+.PHONY : src/Tcp.o
+
+# target to build an object file
+src/Tcp.cpp.o:
+	$(MAKE) -f CMakeFiles/ex4Server.dir/build.make CMakeFiles/ex4Server.dir/src/Tcp.cpp.o
+.PHONY : src/Tcp.cpp.o
+
+src/Tcp.i: src/Tcp.cpp.i
+
+.PHONY : src/Tcp.i
+
+# target to preprocess a source file
+src/Tcp.cpp.i:
+	$(MAKE) -f CMakeFiles/ex4Server.dir/build.make CMakeFiles/ex4Server.dir/src/Tcp.cpp.i
+.PHONY : src/Tcp.cpp.i
+
+src/Tcp.s: src/Tcp.cpp.s
+
+.PHONY : src/Tcp.s
+
+# target to generate assembly for a file
+src/Tcp.cpp.s:
+	$(MAKE) -f CMakeFiles/ex4Server.dir/build.make CMakeFiles/ex4Server.dir/src/Tcp.cpp.s
+.PHONY : src/Tcp.cpp.s
+
 src/Trip.o: src/Trip.cpp.o
 
 .PHONY : src/Trip.o
@@ -707,6 +734,9 @@ help:
 	@echo "... src/TaxiCenter.o"
 	@echo "... src/TaxiCenter.i"
 	@echo "... src/TaxiCenter.s"
+	@echo "... src/Tcp.o"
+	@echo "... src/Tcp.i"
+	@echo "... src/Tcp.s"
 	@echo "... src/Trip.o"
 	@echo "... src/Trip.i"
 	@echo "... src/Trip.s"
