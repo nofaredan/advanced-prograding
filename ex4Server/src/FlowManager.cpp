@@ -286,6 +286,7 @@ void FlowManager::sendSerializePrimitive(Object object, int socketNumber){
 }
 
 void FlowManager::allowMoving(){
+    cout << "taxiCenter->isDriving() 0 " << endl;
     while( isCalc() )
     {
         // wait

@@ -3,9 +3,6 @@
 
 CMakeFiles/ex4Server.dir/src/Cab.cpp.o: ../src/Cab.cpp
 CMakeFiles/ex4Server.dir/src/Cab.cpp.o: ../src/Cab.h
-CMakeFiles/ex4Server.dir/src/Cab.cpp.o: ../src/Passenger.h
-CMakeFiles/ex4Server.dir/src/Cab.cpp.o: ../src/Point.h
-CMakeFiles/ex4Server.dir/src/Cab.cpp.o: ../src/Trip.h
 CMakeFiles/ex4Server.dir/src/Cab.cpp.o: /usr/local/include/boost/algorithm/string.hpp
 CMakeFiles/ex4Server.dir/src/Cab.cpp.o: /usr/local/include/boost/algorithm/string/case_conv.hpp
 CMakeFiles/ex4Server.dir/src/Cab.cpp.o: /usr/local/include/boost/algorithm/string/classification.hpp
@@ -6245,9 +6242,6 @@ CMakeFiles/ex4Server.dir/src/GridNode.cpp.o: /usr/local/include/boost/version.hp
 CMakeFiles/ex4Server.dir/src/LuxuryCab.cpp.o: ../src/Cab.h
 CMakeFiles/ex4Server.dir/src/LuxuryCab.cpp.o: ../src/LuxuryCab.cpp
 CMakeFiles/ex4Server.dir/src/LuxuryCab.cpp.o: ../src/LuxuryCab.h
-CMakeFiles/ex4Server.dir/src/LuxuryCab.cpp.o: ../src/Passenger.h
-CMakeFiles/ex4Server.dir/src/LuxuryCab.cpp.o: ../src/Point.h
-CMakeFiles/ex4Server.dir/src/LuxuryCab.cpp.o: ../src/Trip.h
 CMakeFiles/ex4Server.dir/src/LuxuryCab.cpp.o: /usr/local/include/boost/algorithm/string.hpp
 CMakeFiles/ex4Server.dir/src/LuxuryCab.cpp.o: /usr/local/include/boost/algorithm/string/case_conv.hpp
 CMakeFiles/ex4Server.dir/src/LuxuryCab.cpp.o: /usr/local/include/boost/algorithm/string/classification.hpp

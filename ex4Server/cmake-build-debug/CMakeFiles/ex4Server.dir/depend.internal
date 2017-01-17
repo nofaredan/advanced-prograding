@@ -4,9 +4,6 @@
 CMakeFiles/ex4Server.dir/src/Cab.cpp.o
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Cab.cpp
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Cab.h
- /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Passenger.h
- /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Point.h
- /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Trip.h
  /usr/local/include/boost/algorithm/string.hpp
  /usr/local/include/boost/algorithm/string/case_conv.hpp
  /usr/local/include/boost/algorithm/string/classification.hpp
@@ -6246,9 +6243,6 @@ CMakeFiles/ex4Server.dir/src/LuxuryCab.cpp.o
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Cab.h
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/LuxuryCab.cpp
  /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/LuxuryCab.h
- /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Passenger.h
- /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Point.h
- /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Trip.h
  /usr/local/include/boost/algorithm/string.hpp
  /usr/local/include/boost/algorithm/string/case_conv.hpp
  /usr/local/include/boost/algorithm/string/classification.hpp
