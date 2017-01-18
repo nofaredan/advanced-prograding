@@ -43,6 +43,8 @@ protected:
 
     void resetGrid();
 
+    void deleteRode();
+
     std::vector<Node *> addNeighbors(Node *node);
 
     virtual GridNode* setNodeType(int x, int y);

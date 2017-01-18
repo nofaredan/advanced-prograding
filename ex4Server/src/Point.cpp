@@ -16,6 +16,9 @@ int Point::getY(){
     return y;
 }
 
+/**
+* Operator to compare between points.
+**/
 bool Point::operator==(Point point) {
     return (x==point.getX() && y  == point.getY());
 }

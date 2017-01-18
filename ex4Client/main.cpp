@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Driver.h"
-#include "Tcp.h"
+#include "DriverClient.h"
+#include "TcpClient.h"
 
 using namespace std;
 using namespace boost::archive;
@@ -8,13 +8,15 @@ std::stringstream ss;
 
 
 // create a tcp connection -
-Tcp* tcp;
+TcpClient* tcp;
 
-
+/**
+* deserialize object.
+**/
 template <class Object>
 void deSerializedObject(Object** object) {
-    char buffer[131072];
-    char *end = buffer + 131071;
+    char buffer[4000];
+    char *end = buffer + 3999;
     tcp->reciveData(buffer, sizeof(buffer));
 
     boost::iostreams::basic_array_source<char> device(buffer, end);
@@ -24,6 +26,9 @@ void deSerializedObject(Object** object) {
     ia >> *object;
 }
 
+/**
+* send serialize object.
+**/
 template <class Object>
 void sendSerializePrimitive(Object object){
     // serialize object-
@@ -37,9 +42,12 @@ void sendSerializePrimitive(Object object){
     tcp->sendData(serial_str);
 }
 
+/**
+* deserialize task.
+**/
 void deSerializeTask(int* nTask) {
-    char buffer[131072];
-    char* end = buffer + 131071;
+    char buffer[4000];
+    char* end = buffer + 3999;
     tcp->reciveData(buffer, sizeof(buffer));
 
     boost::iostreams::basic_array_source<char> device(buffer, end);
@@ -49,6 +57,9 @@ void deSerializeTask(int* nTask) {
     ia >> *nTask;
 }
 
+/**
+* send serialize object.
+**/
 template <class Object>
 void sendSerializeObject(Object* obj){
     // serialize object-
@@ -62,8 +73,11 @@ void sendSerializeObject(Object* obj){
     tcp->sendData(serial_str);
 }
 
+/**
+* main function.
+**/
 int main(int argc, char **argv) {
-    tcp = new Tcp(0, atoi(argv[2]));
+    tcp = new TcpClient(0, atoi(argv[2]));
     tcp->initialize();
 
     // get a driver-
@@ -71,24 +85,20 @@ int main(int argc, char **argv) {
     char status, bufferInput;
     // get an input from the user:
     cin >> id >> bufferInput >> age >> bufferInput >> status >> bufferInput >> experience >> bufferInput >> cabId;
-
     // create new driver-
-    Driver *driver = new Driver(id, age, status, experience, cabId);
+    DriverClient *driver = new DriverClient(id, age, status, experience, cabId);
 
     // if server asked for a driver-
     sendSerializeObject(driver);
-
     // get taxi from server-
     Cab* cab = NULL;
     deSerializedObject(&cab);
-
     driver->setCab(cab);
 
-    Trip* trip = NULL;
+    TripClient* trip = NULL;
 
     // get number of input
     int nTask;
-
     do{
         deSerializeTask(&nTask);
 
@@ -105,7 +115,6 @@ int main(int argc, char **argv) {
                 Point* newPoint;
                 deSerializedObject(&newPoint);
                 driver->move(newPoint);
-
                 delete newPoint;
                 break;
 

@@ -50,6 +50,9 @@ bool Map::isDirValid(int newRow, int newColumn) {
             (grid[newRow][newColumn]->getName().compare("ObstacleNode")));
 }
 
+/**
+* destructor.
+**/
 Map::~Map() {
 
 }

@@ -17,7 +17,6 @@ Tcp::Tcp(bool isServers, int port_num) {
 	//this->descriptorCommunicateClient = 0;
 	this->port_number = port_num;
 	this->isServer = isServers;
-
 }
 
 /***********************************************************************
@@ -28,6 +27,7 @@ Tcp::Tcp(bool isServers, int port_num) {
 ***********************************************************************/
 Tcp::~Tcp() {
 	// TODO Auto-generated destructor stub
+	delete threads;
 }
 
 /***********************************************************************
@@ -53,7 +53,7 @@ int Tcp::initialize() {
 		sin.sin_addr.s_addr = INADDR_ANY;
 		sin.sin_port = htons(this->port_number);
 		//bind
-		if (bind(this->socketDescriptor,
+		if (::bind(this->socketDescriptor,
 				(struct sockaddr *) &sin, sizeof(sin)) < 0) {
 			//return an error represent error at this method
 			return ERROR_BIND;
@@ -86,7 +86,6 @@ int Tcp::initialize() {
 int Tcp::setConnection(int numOfClients, void *(*f)(void *)){
 	this->numberOfClients = numOfClients;
 	threads = new pthread_t[this->numberOfClients];
-	threadsCalc = new bool[this->numberOfClients];
 	// loop for each client -
 	for (int i = 0; i < this->numberOfClients; i++){
 		//accept
@@ -107,6 +106,9 @@ int Tcp::setConnection(int numOfClients, void *(*f)(void *)){
 	return CORRECT;
 }
 
+/**
+* Join threads - wait until threads are dead.
+**/
 void Tcp::joinThreads(){
 	for(int i = 0; i < this->numberOfClients; i++)
 	{
@@ -153,7 +155,6 @@ int Tcp::reciveData(char* buffer, int size, int descriptorCommunicateClient) {
 		return ERROR_RECIVE;
 	} else {
 		//printing the massege
-//		cout<<buffer<<endl;
 	}
 	//return correct if there were no problem
 	return read_bytes;
