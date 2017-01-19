@@ -116,15 +116,23 @@ Driver::~Driver() {
         delete currTrip;
     }
 }
-
+/**
+* return if the driver has trip
+**/
 bool Driver::getHasTrip() {
     return (currTrip != NULL);
 }
 
+/**
+* return if the driver is driving
+**/
 bool Driver::isIsDriving() const {
     return isDriving;
 }
 
+/**
+* Set if the driver is driving or not
+**/
 void Driver::setIsDriving(bool isDriving) {
     Driver::isDriving = isDriving;
 }

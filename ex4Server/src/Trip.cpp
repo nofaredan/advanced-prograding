@@ -23,6 +23,9 @@ Trip::Trip(int id, Point startPoint, Point endPoint, int passengers, double tari
     nTimeOfStart = timeOfStart;
 }
 
+/**
+* Destructor.
+**/
 Trip::~Trip(){
     while (rodePoints->size() > 0){
         Point* point =  rodePoints->top();
@@ -30,6 +33,8 @@ Trip::~Trip(){
 
         delete point;
     }
+
+    delete rodePoints;
 }
 
 void Trip:: move(){
@@ -116,14 +121,23 @@ void Trip::setCurrentPlace(Point place) {
     currentPlace = place;
 }
 
+/**
+* get time of start.
+**/
 int Trip::getNTimeOfStart() const {
     return nTimeOfStart;
 }
 
+/**
+* get rode points.
+**/
 stack<Point *, deque<Point *, allocator<Point *>>> *Trip::getRodePoints() const {
     return rodePoints;
 }
 
+/**
+* Set the rode points.
+**/
 void Trip::setRodePoints(stack<Point *, deque<Point *, allocator<Point *>>> *rodePoints) {
     Trip::rodePoints = rodePoints;
 }

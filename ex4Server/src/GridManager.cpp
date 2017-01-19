@@ -68,6 +68,20 @@ GridNode* GridManager::setNodeType(int x, int y){
 }
 
 /**
+* delete the rode
+**/
+void GridManager::deleteRode(){
+
+    // while rode points is not empty
+      while (rodePoints->size() > 0){
+          Point* point =  rodePoints->top();
+          rodePoints->pop();
+
+          delete point;
+    }
+}
+
+/**
  * calculate the best route.
  * @param startPoint = the start point.
  * @param endPoint = the end point.
@@ -93,7 +107,7 @@ void GridManager::resetGrid() {
     // a for loop that goes over the grid and initialized it:
     for (int row = 0; row < sizeX; row++) {
         for (int column = 0; column < sizeY; column++) {
-            ///// need to call set node type - MAP and not GridManager
+            // need to call set node type - MAP and not GridManager
             grid[row][column]->reset();
         }
     }
@@ -160,7 +174,9 @@ vector<Node *> GridManager::addNeighbors(Node *node) {
     return arrNeighbors;
 }
 
-
+/**
+* returns if the direction is valid or not
+**/
 bool GridManager::isDirValid(int newRow, int newColumn){
     return (newRow >= 0 && newRow < sizeX && newColumn >= 0 && newColumn < sizeY);
 }

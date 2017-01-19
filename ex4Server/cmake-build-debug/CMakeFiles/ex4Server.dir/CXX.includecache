@@ -13,8 +13,6 @@ Cab.h
 /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Cab.h
 string
 -
-Trip.h
-/Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Trip.h
 boost/archive/text_oarchive.hpp
 -
 boost/archive/text_iarchive.hpp

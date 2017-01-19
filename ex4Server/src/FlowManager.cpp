@@ -33,28 +33,28 @@ FlowManager::FlowManager(int port) {
 void FlowManager::addDriver() {
     int numDrivers;
     cin >> numDrivers;
-   // for(int i=0; i<numDrivers; i++){
 
         // create new tcp server -
         tcp = new Tcp(1, nPort);
         tcp->initialize();
         bThreadsCalculating  = new bool[numDrivers];
         numberOfDrivers = numDrivers;
+        // for each driver, set that the driver is calculating
         for (int i = 0; i < numDrivers; i++){
             bThreadsCalculating[i] = true;
         }
+        // set connection for each driver - create threads.
         tcp->setConnection(numDrivers, handelThread);
+    }
 
-    //}
-}
-
+/**
+* the treads are created and sent here.
+**/
 void* FlowManager::handelThread(void* params){
     int nTask;
     int socketNum = ((int*)params)[0];
     int placeInArray = ((int*)params)[1];
     delete (int*)params;
-
-    //bThreadsCalculating[placeInArray] = true;
 
     pthread_mutex_lock(&count_mutex_flow_manager);
 
@@ -62,35 +62,23 @@ void* FlowManager::handelThread(void* params){
     Driver *driver;
     getSerializObject(&driver, socketNum);
 
-
-    // set socket tcp id
-    //tcp->setNID(driver->getId());
-
-   // driver->setMap(map);
     taxiCenter->addDriver(driver);
 
-
     sendSerializeObject(driver->getCab(), socketNum);
-
 
     pthread_mutex_unlock(&count_mutex_flow_manager);
     // while not moving-
     bThreadsCalculating[placeInArray] = false;
     bKeepThreadAlive = true;
-    cout << "handelThread 4 " << driver->getId() << endl;
     while (bKeepThreadAlive){
         //if (bMoveDrivers){
         if (driver->isIsDriving()){
-            cout << "handelThread 5 " << driver->getId() << endl;
             // lock!
             pthread_mutex_lock(&count_mutex_moving);
 
-           // driver->setIsDriving(true);
             // move only if trip finished it's calculations
             for(int i = 0; i < vecTripThreads.size(); i++)
             {
-                //pthread_t thread = *(vecTripThreads.at(i));
-
                 pthread_join((vecTripThreads.at(i)), NULL);
             }
 
@@ -98,10 +86,7 @@ void* FlowManager::handelThread(void* params){
 
             pthread_mutex_unlock(&count_mutex_moving);
 
-            cout << "handelThread 6 " << driver->getId() << endl;
             driver->setIsDriving(false);
-            cout << "handelThread 7 " << driver->getId() << endl;
-           // bMoveDrivers = false;
         }
    }
 
@@ -130,11 +115,13 @@ void FlowManager::addTaxi() {
     }
 }
 
-
+/**
+* Get serialize object
+**/
 template <class Object>
 void FlowManager::getSerializObject(Object **object, int socketNumber) {
-    char buffer[131072];
-    char* end = buffer + 131071;
+    char buffer[1600001];
+    char* end = buffer + 1600000;
     tcp->reciveData(buffer, sizeof(buffer), socketNumber);
 
     boost::iostreams::basic_array_source<char> device(buffer, end);
@@ -180,8 +167,6 @@ void FlowManager::addTrip() {
  * calculate best route for trip.
  */
 void* FlowManager::calculateBestRoute(void* trip) {
-    cout << "calculateBestRoute 1 " << ((Trip*)(trip))->getRideId() << endl;
-
     pthread_mutex_lock(&count_mutex);
 
     Trip* currTrip = (Trip*) trip;
@@ -189,8 +174,6 @@ void* FlowManager::calculateBestRoute(void* trip) {
     currTrip->setRodePoints(map->calculateBestRoute(currTrip->getCurrentPlace(), currTrip->getEnd()));
 
     pthread_mutex_unlock(&count_mutex);
-
-    cout << "calculateBestRoute 2 " << ((Trip*)(trip))->getRideId() << endl;
 
     return NULL;
 }
@@ -242,15 +225,18 @@ void FlowManager::getDriverPlace() {
  * destructor.
  */
 FlowManager::~FlowManager() {
+    // delete map
     if(map != NULL) {
         delete map;
     }
+    // delete taxi center
     if(taxiCenter != NULL) {
         delete taxiCenter;
     }
-
+    // step keeping threads alive - killing the threads
     bKeepThreadAlive = false;
 
+    // stop connecing with the clients - stop tcp
     if(tcp != NULL) {
         tcp->joinThreads();
         delete tcp;
@@ -258,7 +244,9 @@ FlowManager::~FlowManager() {
 }
 
 
-
+/**
+* send serialize object to the client
+**/
 template <class Object>
 void FlowManager::sendSerializeObject(Object* obj, int socketNumber){
     // serialize object-
@@ -269,9 +257,14 @@ void FlowManager::sendSerializeObject(Object* obj, int socketNumber){
     oa << obj;
     s.flush();
 
+    // send the data to the client
     tcp->sendData(serial_str, socketNumber);
 }
 
+
+/**
+* send the serialize primitive to the client
+**/
 template <class Object>
 void FlowManager::sendSerializePrimitive(Object object, int socketNumber){
     // serialize object-
@@ -282,23 +275,24 @@ void FlowManager::sendSerializePrimitive(Object object, int socketNumber){
     oa << object;
     s.flush();
 
+    // send the data to the client
     tcp->sendData(serial_str, socketNumber);
 }
 
+/**
+* start moving - when press on 9, the driver needs to move
+* if the trip's clock equals to the world clock
+**/
 void FlowManager::allowMoving(){
     while( isCalc() )
     {
         // wait
     }
 
-    cout << "taxiCenter->isDriving() 1 " << endl;
-
     // update the clock by one
     nWorldClock++;
 
     bMoveDrivers = true;
-
-    cout << "taxiCenter->isDriving() 2 " << endl;
 
     // call to all drivers to move!-
     taxiCenter->startDriving();
@@ -308,98 +302,66 @@ void FlowManager::allowMoving(){
         // wait
     }
 
-    cout << "taxiCenter->isDriving() 3 " << taxiCenter->isDriving() << endl;
-
     bMoveDrivers = false;
-
-    cout << "taxiCenter->isDriving() 4 " << taxiCenter->isDriving() << endl;
 }
 
+/**
+* returns if the threads are in the middle of calculation
+**/
 bool FlowManager::isCalc(){
     for (int i = 0; i < numberOfDrivers; i++){
-        //cout << "bThreadsCalculating[i] " << bThreadsCalculating[i] << endl;
         if (bThreadsCalculating[i]){
             return true;
         }
     }
-
     return false;
 }
 
+/**
+* move one step - the driver moves one step on the grid.
+**/
 void FlowManager::moveOneStep(Driver* driver, int socketNumber) {
     bMoveDrivers = true;
 
-    cout << "moveOneStep driver->getID() " << driver->getId() << endl;
-    cout << "moveOneStep nWorldClock " << nWorldClock << endl;
-
     Trip* tMatchingTrip = taxiCenter->connectTripToDriver(nWorldClock, driver);
 
-    cout << "tMatchingTrip " << tMatchingTrip << endl;
-
-    cout << "driver->getHasTrip() " << driver->getHasTrip() << endl;
-
     bool bTripOver = false;
-    //Driver* driver=  taxiCenter->getDriverById(tcp->getNID());
+
     // if there's a new trip, sent to client the trip
     if (tMatchingTrip != NULL)
     {
-        cout << "tMatchingTrip->getEnd() " << tMatchingTrip->getEnd().getX() << tMatchingTrip->getEnd().getY()<< endl;
-
         // sending new trip task to client
         sendSerializePrimitive(1, socketNumber);
-
-        cout << "moveOneStep 31 " << endl;
 
         // send to client the trip
         sendSerializeObject(tMatchingTrip, socketNumber);
 
-        cout << "moveOneStep 32 " << endl;
-        // calc route -
-       // driver->calculateBestRoute();
-
         // move driver from first point
         bTripOver = driver->move();
 
-        cout << "moveOneStep 3 " << endl;
     } // if driver has trip
     else if (driver->getHasTrip()){
-        cout << "moveOneStep 4 " << endl;
         // sending new point task to client
         sendSerializePrimitive(2, socketNumber);
 
-        cout << "moveOneStep 41 " << endl;
         // move driver
         bTripOver = driver->move();
-
-        cout << "moveOneStep 42 " << endl;
 
         // get point from driver
         Point* point = new Point(driver->getCurrentPlace().getX(),
                                  driver->getCurrentPlace().getY());
 
-        cout << "driver->getCurrentPlace() " << driver->getCurrentPlace().getX() <<  driver->getCurrentPlace().getY() << endl;
-
         // send point to client
         sendSerializeObject(point, socketNumber);
 
-        cout << "moveOneStep 5 " << endl;
-
         delete point;
     }
-
-    cout << "moveOneStep 6 " << endl;
     // if trip is over, send it to client
     if (bTripOver){
-        cout << "moveOneStep 7 " << endl;
         sendSerializePrimitive(3, socketNumber);
-
-        cout << "moveOneStep 8 " << endl;
 
         // inform to taxi center that trip is over
         taxiCenter->endOfDriving(driver->getId());
     }
-
-    cout << "moveOneStep 9 " << endl;
-
     bMoveDrivers = false;
 }

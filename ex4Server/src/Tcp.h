@@ -8,6 +8,7 @@
 
 #include "Socket.h"
 #include <pthread.h>
+#include <vector>
 
 class Tcp: public Socket {
 private:
@@ -15,7 +16,6 @@ private:
 
 	int numberOfClients;
 	pthread_t* threads;
-	bool* threadsCalc;
 public:
 	/***********************************************************************
 	* function name: Tcp												   *

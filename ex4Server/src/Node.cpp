@@ -24,6 +24,9 @@ int Node::getLongestRode() {
     return longestRode;
 }
 
+/**
+* reset the node.
+**/
 void Node::reset() {
     longestRode = -1;
     previous = NULL;

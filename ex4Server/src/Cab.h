@@ -6,7 +6,6 @@
 #define EX2_CAB_H
 
 #include <string>
-#include "Trip.h"
 
 #include <boost/archive/text_oarchive.hpp>
 #include <boost/archive/text_iarchive.hpp>

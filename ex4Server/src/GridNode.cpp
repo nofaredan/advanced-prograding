@@ -8,6 +8,9 @@ Point GridNode::getPoint() const {
     return point;
 }
 
+/**
+* get the name of the Grid Node
+**/
 std::string GridNode::getName(){
     return "GridNode";
 }
