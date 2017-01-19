@@ -1,38 +1,80 @@
-* commit 35aa7c0419eefc4dd34c54389263593fca29e8c3
+* commit 3c165be540ad662152723d7962b3b2412c429792
 | Author: nofar edan <nofaredan@gmail.com>
-| Date:   Thu Jan 5 17:58:25 2017 +0200
+| Date:   Wed Jan 18 19:18:35 2017 +0200
 | 
-|     6th ex4 push, final push, after checking on u2
+|     ex5 push, almost final pushgit add .
 |  
-* commit 31e0ca28e3049d5ae54baf6d9a1001b04faf40de
+* commit e9559d45f48b0a96a023915a35acbac9fe1b22d9
 | Author: nofar edan <nofaredan@gmail.com>
-| Date:   Thu Jan 5 00:24:25 2017 +0200
+| Date:   Wed Jan 18 00:09:42 2017 +0200
 | 
-|     5th ex4 push, almost final push, after checking on u2
-|  
-* commit 5112586cea9cae3adf5d21703018e63df59d51b0
-| Author: nofar edan <nofaredan@gmail.com>
-| Date:   Mon Jan 2 23:56:46 2017 +0200
-| 
-|     4th ex4 push, added connections between server and client, game loop
-|  
-* commit 3d0245ec7d191cdc41f79eb73e5b2b9596d8a165
-| Author: nofar edan <nofaredan@gmail.com>
-| Date:   Sat Dec 31 20:36:15 2016 +0200
-| 
-|     Third ex4 push, added connections between server and client
-|  
-* commit 4bad8de22f878008e9c8e5d2922713bde70a84b6
-| Author: nofar edan <nofaredan@gmail.com>
-| Date:   Sat Dec 31 01:13:42 2016 +0200
-| 
-|     Sec ex4 push
-|  
-* commit 5ff6f7a59a2b48c11ba4360c88d31e56bbb0cc0d
-| Author: nofar edan <nofaredan@gmail.com>
-| Date:   Fri Dec 30 11:25:19 2016 +0200
-| 
-|     First ex4 push
+|     ex5 push, after valgrind and cheking on u2 with trace
+|    
+*   commit 6e50e5313818c176d34a058507b8731bd25714d7
+|\  Merge: b71abe3 9f3d6b7
+| | Author: nofaredan <nofaredan@gmail.com>
+| | Date:   Tue Jan 17 01:48:04 2017 +0200
+| | 
+| |     Merge pull request #3 from nofaredan/ex4
+| |     
+| |     Ex4
+| |   
+| * commit 9f3d6b76afc77d3c7bd0399fd3c185ae5dee160a
+| | Author: nofar edan <nofaredan@gmail.com>
+| | Date:   Tue Jan 17 01:44:36 2017 +0200
+| | 
+| |     ex5 push, after adding another client for debugging and tracing
+| |   
+| * commit e5ead16a6b4912b2448d5a79b5f5060cf1edfe5a
+| | Author: nofar edan <nofaredan@gmail.com>
+| | Date:   Thu Jan 5 18:23:43 2017 +0200
+| | 
+| |     6th ex4 push, final push, after checking on u2 and changing distructor of GridManager
+| |   
+| * commit 35aa7c0419eefc4dd34c54389263593fca29e8c3
+| | Author: nofar edan <nofaredan@gmail.com>
+| | Date:   Thu Jan 5 17:58:25 2017 +0200
+| | 
+| |     6th ex4 push, final push, after checking on u2
+| |   
+| * commit 31e0ca28e3049d5ae54baf6d9a1001b04faf40de
+| | Author: nofar edan <nofaredan@gmail.com>
+| | Date:   Thu Jan 5 00:24:25 2017 +0200
+| | 
+| |     5th ex4 push, almost final push, after checking on u2
+| |   
+| * commit 5112586cea9cae3adf5d21703018e63df59d51b0
+| | Author: nofar edan <nofaredan@gmail.com>
+| | Date:   Mon Jan 2 23:56:46 2017 +0200
+| | 
+| |     4th ex4 push, added connections between server and client, game loop
+| |   
+| * commit 3d0245ec7d191cdc41f79eb73e5b2b9596d8a165
+| | Author: nofar edan <nofaredan@gmail.com>
+| | Date:   Sat Dec 31 20:36:15 2016 +0200
+| | 
+| |     Third ex4 push, added connections between server and client
+| |   
+| * commit 4bad8de22f878008e9c8e5d2922713bde70a84b6
+| | Author: nofar edan <nofaredan@gmail.com>
+| | Date:   Sat Dec 31 01:13:42 2016 +0200
+| | 
+| |     Sec ex4 push
+| |     
+* |   commit b71abe36c3f5b7f02180d94db396349b9ee7f6e8
+|\ \  Merge: 6a407b9 5ff6f7a
+| |/  Author: nofaredan <nofaredan@gmail.com>
+| |   Date:   Fri Dec 30 11:26:08 2016 +0200
+| |   
+| |       Merge pull request #2 from nofaredan/ex4
+| |       
+| |       First ex4 push
+| |   
+| * commit 5ff6f7a59a2b48c11ba4360c88d31e56bbb0cc0d
+|/  Author: nofar edan <nofaredan@gmail.com>
+|   Date:   Fri Dec 30 11:25:19 2016 +0200
+|   
+|       First ex4 push
 |    
 *   commit 6a407b989e8f862ec22b107b8ad0ca0f34c744e4
 |\  Merge: b2b8968 1517b93
