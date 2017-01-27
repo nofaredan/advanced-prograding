@@ -318,3 +318,41 @@ Driver* TaxiCenter::getDriverById(int nDriverId) {
     copyQueue(&queueBusyDrivers, &busyDrivers);
     return driver;
 }
+
+bool TaxiCenter::isTripExist(int id) {
+    vector<Trip *> vectorTrips;
+    bool isExist = false;
+    while (pendingTrip.size() > 0){
+        if (pendingTrip.back()->getRideId() == id){
+            isExist = true;
+        }
+
+        vectorTrips.push_back(pendingTrip.back());
+        pendingTrip.pop_back();
+    }
+
+    if (vectorTrips.size() > 0){
+        pendingTrip = vectorTrips;
+    }
+
+    return isExist;
+}
+
+bool TaxiCenter::isCabExist(int id) {
+    vector<Cab*> vectorCabs;
+    bool isExist = false;
+    while (availableCabs.size() > 0){
+        if (availableCabs.back()->getCabId() == id){
+            isExist = true;
+        }
+
+        vectorCabs.push_back(availableCabs.back());
+        availableCabs.pop_back();
+    }
+
+    if (vectorCabs.size() > 0){
+        availableCabs = vectorCabs;
+    }
+
+    return isExist;
+}

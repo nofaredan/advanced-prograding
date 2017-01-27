@@ -1,3 +1,9 @@
+* commit d6df44f710b95e7cd3c72ebbb8e08b414d886dde
+| Author: nofar edan <nofaredan@gmail.com>
+| Date:   Thu Jan 19 21:49:55 2017 +0200
+| 
+|     ex5 push, final
+|  
 * commit 3c165be540ad662152723d7962b3b2412c429792
 | Author: nofar edan <nofaredan@gmail.com>
 | Date:   Wed Jan 18 19:18:35 2017 +0200

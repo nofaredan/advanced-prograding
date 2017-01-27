@@ -14,6 +14,12 @@
 class GridManager : public Manager {
 private:
     int sizeX, sizeY;
+public:
+    int getSizeX() const;
+
+    int getSizeY() const;
+
+private:
     int currentRow, currentColumn;
 
     std::stack<Point*> *rodePoints;

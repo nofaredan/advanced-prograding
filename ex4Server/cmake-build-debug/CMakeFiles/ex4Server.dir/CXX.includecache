@@ -103,6 +103,10 @@ Map.h
 /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Map.h
 pthread.h
 -
+string
+-
+ctype.h
+-
 
 /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/GridManager.cpp
 GridManager.h
@@ -302,6 +306,8 @@ Tcp.h
 Socket.h
 /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Socket.h
 pthread.h
+-
+vector
 -
 
 /Users/nofaredan/Desktop/nofar/Study/Computer Science/B/תכנות מתקדם/ex4/advanced-programing/ex4Server/src/Trip.cpp
