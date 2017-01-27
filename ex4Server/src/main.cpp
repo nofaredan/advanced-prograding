@@ -34,6 +34,7 @@ int main(int argc, char **argv) {
                 break;
 
             default:
+                std::cout << "-1" << std::endl;
                 break;
         }
 

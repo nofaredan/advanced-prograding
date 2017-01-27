@@ -6,6 +6,8 @@
 #include "Tcp.h"
 #include "Map.h"
 #include <pthread.h>
+#include <string>
+#include <ctype.h>
 
 using namespace std;
 using namespace boost::archive;
@@ -34,6 +36,8 @@ public:
     void addTrip();
     void getDriverPlace();
     bool isCalc();
+    bool isNanFlow(string input);
+    vector<string> splitFlow(char strSplit);
     static void moveOneStep(Driver* driver, int socketNumber);
     void allowMoving();
     template <class Object>

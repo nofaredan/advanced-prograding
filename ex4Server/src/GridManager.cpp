@@ -213,3 +213,11 @@ void GridManager::setAllRodeNodes(Node *lastNode) {
         lastNode = lastNode->getPreviousNode();
     }
 }
+
+int GridManager::getSizeX() const {
+    return sizeX;
+}
+
+int GridManager::getSizeY() const {
+    return sizeY;
+}

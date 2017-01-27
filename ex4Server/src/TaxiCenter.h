@@ -30,6 +30,8 @@ public:
     bool isDriving();
     void startDriving();
     Point getDriverPlace(int id);
+    bool isTripExist(int id);
+    bool isCabExist(int id);
     Point getDriverPlaceInQueue(queue<Driver*> driverQueue, int id);
     Trip* connectTripToDriver(int nClockTime, Driver* driver);
     Driver* getDriverById(int nDriverId);

@@ -104,15 +104,34 @@ void* FlowManager::handelThread(void* params){
 void FlowManager::addTaxi() {
     int id, taxiType;
     char manufactor, color, buffer;
-    // get an input from the user
-    cin >> id >> buffer >> taxiType >> buffer >> manufactor >> buffer >> color;
 
-    // create a taxi according to the input
-    if (taxiType == 1) {
-        taxiCenter->addCab(new Cab(id, manufactor, color));
-    } else {
-        taxiCenter->addCab(new LuxuryCab(id, manufactor, color));
+    vector<string> input = splitFlow(',');
+
+    if (input.size() == 4) {
+        id = atoi(input.at(0).c_str());
+        taxiType = atoi(input.at(1).c_str());
+        manufactor = (input.at(2).c_str())[0];
+        color = (input.at(3).c_str())[0];
+
+        if (id < 0 || isNanFlow(input.at(0)) || taxiCenter->isCabExist(id)) {
+            std::cout << "-1" << std::endl;
+        }
+        else{
+            // create a taxi according to the input
+            if (taxiType == 1) {
+                taxiCenter->addCab(new Cab(id, manufactor, color));
+            } else {
+                taxiCenter->addCab(new LuxuryCab(id, manufactor, color));
+            }
+        }
     }
+    else{
+        std::cout << "-1" << std::endl;
+    }
+
+
+    // get an input from the user
+    //cin >> id >> buffer >> taxiType >> buffer >> manufactor >> buffer >> color;
 }
 
 /**
@@ -147,20 +166,48 @@ void FlowManager::addTrip() {
     int id, startX, startY, endX, endY, numPassengers, timeOfStart;
     double tariff;
     char buffer;
+
+    vector<string> input = splitFlow(',');
+
+    if (input.size() == 8){
+        id = atoi(input.at(0).c_str());
+        startX = atoi(input.at(1).c_str());
+        startY = atoi(input.at(2).c_str());
+        endX = atoi(input.at(3).c_str());
+        endY = atoi(input.at(4).c_str());
+        numPassengers = atoi(input.at(5).c_str());
+        tariff = atoi(input.at(6).c_str());
+        timeOfStart = atoi(input.at(7).c_str());
+
+        if (id < 0 || startX < 0 || startY < 0 || endX < 0 || endY < 0 ||
+                numPassengers <= 0 || tariff < 0 || timeOfStart <= 0 || startX > map->getSizeX() ||
+                startY > map->getSizeY() || endX > map->getSizeX() || endY > map->getSizeY() ||
+                isNanFlow(input.at(0)) || isNanFlow(input.at(1)) || isNanFlow(input.at(2)) || isNanFlow(input.at(3)) ||
+                isNanFlow(input.at(4)) || isNanFlow(input.at(5)) || isNanFlow(input.at(6)) || isNanFlow(input.at(7)) ||
+                taxiCenter->isTripExist(id)){
+            std::cout << "-1" << std::endl;
+        }
+        else{
+            // create a new trip
+            Trip *trip = new Trip(id, Point(startX, startY), Point(endX, endY), numPassengers, tariff, timeOfStart);
+            // send the tr/*ip to taxi center
+            taxiCenter->answerCall(trip);
+
+            pthread_t thread;
+
+            // handel thread
+            pthread_create(&thread, NULL, calculateBestRoute,  (void *) trip);
+
+            vecTripThreads.push_back(thread);
+        }
+    }
+    else{
+        std::cout << "-1" << std::endl;
+    }
+
     // get an input from the user:
-    cin >> id >> buffer >> startX >> buffer >> startY >> buffer >>
-        endX >> buffer >> endY >> buffer >> numPassengers >> buffer >> tariff >> buffer >> timeOfStart;
-    // create a new trip
-    Trip *trip = new Trip(id, Point(startX, startY), Point(endX, endY), numPassengers, tariff, timeOfStart);
-    // send the trip to taxi center
-    taxiCenter->answerCall(trip);
-
-    pthread_t thread;
-
-    // handel thread
-    pthread_create(&thread, NULL, calculateBestRoute,  (void *) trip);
-
-    vecTripThreads.push_back(thread);
+   /* cin >> id >> buffer >> startX >> buffer >> startY >> buffer >>
+        endX >> buffer >> endY >> buffer >> numPassengers >> buffer >> tariff >> buffer >> timeOfStart;*/
 }
 
 /**
@@ -186,23 +233,98 @@ void FlowManager::initializeMap() {
     int numObstacles;
     char buffer;
     int x, y;
+    string input;
+    string strSizeX;
+    string strSizeY;
     int sizeX, sizeY;
     vector<Point> obstacles;
 
-    // size grid
-    cin >> sizeX >> sizeY;
+    vector<string> inputs;
+    bool bValidInput = false;
+
+    while (!bValidInput){
+        inputs = splitFlow(' ');
+
+        if (inputs.size() == 2){
+            sizeX = atoi(inputs.at(0).c_str());
+            sizeY = atoi(inputs.at(1).c_str());
+
+            strSizeX = inputs.at(0);
+            strSizeY = inputs.at(1);
+
+            if (sizeX <= 0 || sizeY <= 0 || isNanFlow(strSizeX) || isNanFlow(strSizeY)){
+                std::cout << "-1" << std::endl;
+            }
+            else{
+                getline(cin, input);
+
+                numObstacles = atoi(input.c_str());
+
+                if (numObstacles <= 0 || isNanFlow(input)){
+                    std::cout << "-1" << std::endl;
+                }
+                else{
+                    // get the obstacles
+                    for (int i = 0; i < numObstacles; i++) {
+                        inputs = splitFlow(',');
+
+                        if (inputs.size() == 2){
+                            x = atoi(inputs.at(0).c_str());
+                            y = atoi(inputs.at(1).c_str());
+
+                            strSizeX = inputs.at(0);
+                            strSizeY = inputs.at(1);
+
+                            if (x <= 0 || y <= 0 || isNanFlow(strSizeX) || isNanFlow(strSizeY)){
+                                std::cout << "-1" << std::endl;
+
+                                bValidInput = false;
+
+                                while (obstacles.size() > 0){
+                                    obstacles.pop_back();
+                                }
+                                break;
+                            }
+                            else{
+                                obstacles.push_back(Point(x, y));
+                                bValidInput = true;
+                            }
+                        }
+                        else{
+                            std::cout << "-1" << std::endl;
+                        }
+
+                    }
+                }
+            }
+        }
+        else{
+            std::cout << "-1" << std::endl;
+        }
+    }
+
+
+    /*bValidInput = false;
+    while (!bValidInput){
+        // get the number of obstacles
+        //cin >> numObstacles;
+
+        string input;
+        getline(cin, input);
+
+        numObstacles = atoi(input.c_str());
+
+        if (numObstacles <= 0 || isNanFlow(input)){
+            std::cout << "-1" << std::endl;
+        }
+        else{
+            bValidInput = true;
+        }
+    }*/
+
 
     // create a grid node array
     arrGridNode = new GridNode **[sizeY];
-
-    // get the number of obstacles
-    cin >> numObstacles;
-    // get the obstacles
-    for (int i = 0; i < numObstacles; i++) {
-        cin >> x >> buffer >> y;
-        obstacles.push_back(Point(x, y));
-    }
-
     // create a new map
     map = new Map(sizeX, sizeY, &obstacles, arrGridNode);
 }
@@ -218,7 +340,12 @@ void FlowManager::getDriverPlace() {
     // get the current place of the driver
     currentPlace = taxiCenter->getDriverPlace(driverId);
     // print the current place of the driver:
-    printf("(%d,%d)\n", currentPlace.getX(), currentPlace.getY());
+    if (currentPlace.getX() == -1 || currentPlace.getY() == -1){
+        std::cout << "-1" << std::endl;
+    }
+    else{
+        printf("(%d,%d)\n", currentPlace.getX(), currentPlace.getY());
+    }
 }
 
 /**
@@ -364,4 +491,31 @@ void FlowManager::moveOneStep(Driver* driver, int socketNumber) {
         taxiCenter->endOfDriving(driver->getId());
     }
     bMoveDrivers = false;
+}
+
+bool FlowManager::isNanFlow(string input) {
+    for (int i = 0; i < input.length(); i++){
+        std::cout << input.at(i) << std::endl;
+        std::cout << isdigit(input.at(i)) << std::endl;
+        if (!(isdigit(input.at(i)))){
+            return true;
+        }
+    }
+
+    return false;
+}
+
+vector<string> FlowManager::splitFlow(char strSplit) {
+    string input;
+    string temp;
+    int lengthCount = -1;
+    vector<string> stringVec;
+    getline(cin, input);
+    while (lengthCount < (int)input.length()){
+        temp = input.substr(lengthCount + 1, input.find(strSplit));
+        lengthCount += temp.length() + 1;
+        stringVec.push_back(temp);
+    }
+
+    return stringVec;
 }
